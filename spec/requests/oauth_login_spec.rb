@@ -7,8 +7,8 @@ RSpec.feature "user logs in" do
 
     visit root_path
 
-    expect(page).to have_link("Login")
-    click_link "Login"
+    expect(page).to have_link("Sign In")
+    click_link "Sign In"
 
     expect(page).to have_content("Welcome, Stephen")
     expect(page).to have_link("Logout")

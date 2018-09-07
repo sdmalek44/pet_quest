@@ -17,6 +17,26 @@ require 'rspec/rails'
 # end with _spec.rb. You can configure this pattern with the --pattern
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 #
+def stub_omniauth
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(
+      {"provider"=>"google_oauth2",
+       "uid"=>"100857051672230728041",
+       "info"=>
+        {"name"=>"Stephen Malek",
+         "email"=>"malek.stephen44@gmail.com",
+         "first_name"=>"Stephen",
+         "last_name"=>"Malek",
+         "image"=>"https://lh3.googleusercontent.com/-tQF1krYYNT8/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaPAdtfOoAI7ZQ-KkaXIiwCm0M_T_Q/mo/photo.jpg",
+         "urls"=>{"google"=>"https://plus.google.com/100857051672230728041"}},
+         "credentials"=>
+           {"token"=>"",
+            "expires_at"=>1536353459,
+            "expires"=>true}
+          }
+        }
+      })
+  end
 # The following line is provided for convenience purposes. It has the downside
 # of increasing the boot-up time by auto-requiring all files in the support
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
@@ -55,9 +75,9 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
- DatabaseCleaner.clean_with(:truncation)
- DatabaseCleaner.strategy = :truncation
-end
+   DatabaseCleaner.clean_with(:truncation)
+   DatabaseCleaner.strategy = :truncation
+  end
 
  config.around(:each) do |example|
    DatabaseCleaner.cleaning do
