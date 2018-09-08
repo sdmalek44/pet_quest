@@ -1,32 +1,38 @@
-<form class="" action="/search" method="post">
-  <select name="animal">
-    <option value="dog">Dog</option>
-    <option value="cat">Cat</option>
-  </select>
+<form class="" action="/search/dogs" method="get">
   <select name="breed">
-    <option value="Golden Retriever">Golden Retriever</option>
-    <option value="Boxer">Boxer</option>
-  </select>
-  <select name="breed">
+    <option value="">Any</option>
     <option value="Golden Retriever">Golden Retriever</option>
     <option value="Boxer">Boxer</option>
   </select>
   <select name="age">
+    <option value="">Any</option>
     <option value="Baby">Baby</option>
     <option value="Young">Young</option>
     <option value="Adult">Adult</option>
     <option value="Senior">Senior</option>
   </select>
   <select name="size">
+    <option value="">Any</option>
     <option value="S">Small</option>
     <option value="M">Medium</option>
     <option value="L">Large</option>
     <option value="XL">XL</option>
   </select>
   <select name="gender">
+    <option value="">Any</option>
     <option value="M">Male</option>
     <option value="F">Female</option>
-    <option value="T">They</option>
   </select>
   <input type="submit" value="Search">
 </form>
+
+<% if @dogs %>
+  <% @dogs.each do |dog| %>
+  <img src="<%= dog.photos.thumbnail_photo %>" alt="">
+  <div>Name: <%= dog.name %></div>
+  <div>Breeds: <%= dog.breeds %></div>
+  <div>Age: <%= dog.age %></div>
+  <div>Sex: <%= dog.sex %></div>
+  <div>Address: <%= dog.contact.full_address %></div>
+  <% end %>
+<% end %>
