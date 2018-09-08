@@ -11,6 +11,6 @@ RSpec.feature "user logs in" do
     click_link "Sign In"
 
     expect(page).to have_content("Welcome, Stephen")
-    expect(page).to have_link("Logout")
+    expect(page).to have_link("Sign Out")
   end
 end

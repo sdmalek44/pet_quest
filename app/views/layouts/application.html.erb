@@ -9,12 +9,7 @@
   </head>
 
   <body>
-    <nav id="nav">
-        <div class="inner-nav">
-          <img class="logo" src="/assets/pq_logo_final.png" alt="">
-          <a class="sign-in" href="<%= oauth_path(last_path: request.env['REQUEST_PATH']) %>">Sign In</a>
-        </div>
-    </nav>
+    <%= render "shared/#{presenter.current_navbar}" %>
     <%= yield %>
   </body>
 </html>

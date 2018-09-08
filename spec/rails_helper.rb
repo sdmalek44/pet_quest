@@ -19,23 +19,21 @@ require 'rspec/rails'
 #
 def stub_omniauth
     OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
       {"provider"=>"google_oauth2",
        "uid"=>"100857051672230728041",
        "info"=>
-        {"name"=>"Stephen Malek",
-         "email"=>"malek.stephen44@gmail.com",
-         "first_name"=>"Stephen",
-         "last_name"=>"Malek",
-         "image"=>"https://lh3.googleusercontent.com/-tQF1krYYNT8/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaPAdtfOoAI7ZQ-KkaXIiwCm0M_T_Q/mo/photo.jpg",
-         "urls"=>{"google"=>"https://plus.google.com/100857051672230728041"}},
+          {"email"=>"malek.stephen44@gmail.com",
+           "first_name"=>"Stephen",
+           "last_name"=>"Malek"
+        },
          "credentials"=>
-           {"token"=>"",
+           {"token"=>ENV['GOOGLE_TOKEN'],
             "expires_at"=>1536353459,
-            "expires"=>true}
-          }
-        }
-      })
+            "expires"=> DateTime.now
+            }
+        })
+
   end
 # The following line is provided for convenience purposes. It has the downside
 # of increasing the boot-up time by auto-requiring all files in the support

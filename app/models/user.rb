@@ -10,4 +10,7 @@ class User < ApplicationRecord
     end
   end
 
+  def logged_in?
+    true
+  end
 end
