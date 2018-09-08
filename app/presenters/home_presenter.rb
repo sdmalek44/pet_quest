@@ -2,6 +2,7 @@ class HomePresenter
   def initialize(user)
     @user = user
   end
+
   def current_navbar
     return 'log_out_nav.html.erb' if user.logged_in?
     'log_in_nav.html.erb'
