@@ -1,0 +1,3 @@
+class SearchPresenter < BasePresenter
+  
+end
