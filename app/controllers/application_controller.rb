@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   helper_method :current_user
   helper_method :presenter
 
@@ -7,7 +7,4 @@ class ApplicationController < ActionController::Base
     @user ||= User.find_by(id: session[:user_id]) || NullUser.new
   end
 
-  def presenter
-    @presenter ||= HomePresenter.new(current_user)
-  end
 end

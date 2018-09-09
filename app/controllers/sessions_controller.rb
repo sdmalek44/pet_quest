@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  def index
-  end
 
   def create
     auth = request.env["omniauth.auth"]
@@ -17,10 +15,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    last_path = session[:last_path] if session[:last_path]
-    session[:last_path] = nil
     session[:user_id] = nil
-    if last_path
+    last_path = params[:last_path]
+    if params[:last_path]
       redirect_to last_path
     else
       redirect_to root_path

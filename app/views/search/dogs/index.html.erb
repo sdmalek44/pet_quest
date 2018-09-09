@@ -1,0 +1,40 @@
+<form class="" action="/search/dogs" method="get">
+  <select name="breed">
+    <option value="">Any</option>
+    <option value="Golden Retriever">Golden Retriever</option>
+    <option value="Boxer">Boxer</option>
+  </select>
+  <select name="age">
+    <option value="">Any</option>
+    <option value="Baby">Baby</option>
+    <option value="Young">Young</option>
+    <option value="Adult">Adult</option>
+    <option value="Senior">Senior</option>
+  </select>
+  <select name="size">
+    <option value="">Any</option>
+    <option value="S">Small</option>
+    <option value="M">Medium</option>
+    <option value="L">Large</option>
+    <option value="XL">XL</option>
+  </select>
+  <select name="sex">
+    <option value="">Any</option>
+    <option value="M">Male</option>
+    <option value="F">Female</option>
+  </select>
+  <input type="submit" value="Search">
+</form>
+
+<% if @dogs %>
+  <% @dogs.each do |dog| %>
+  <a href="/search/dogs/<%= dog.id %>">
+  <img src="<%= dog.photos.thumbnail_photo %>" alt="">
+</a>
+  <div>Name: <%= dog.name %></div>
+  <div>Breed: <%= dog.breeds %></div>
+  <div>Age: <%= dog.age %></div>
+  <div>Sex: <%= dog.sex %></div>
+  <div>Address: <%= dog.contact.full_address %></div>
+  <% end %>
+<% end %>
