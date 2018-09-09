@@ -18,7 +18,7 @@
     <option value="L">Large</option>
     <option value="XL">XL</option>
   </select>
-  <select name="gender">
+  <select name="sex">
     <option value="">Any</option>
     <option value="M">Male</option>
     <option value="F">Female</option>
@@ -28,9 +28,11 @@
 
 <% if @dogs %>
   <% @dogs.each do |dog| %>
+  <a href="/search/dogs/<%= dog.id %>">
   <img src="<%= dog.photos.thumbnail_photo %>" alt="">
+</a>
   <div>Name: <%= dog.name %></div>
-  <div>Breeds: <%= dog.breeds %></div>
+  <div>Breed: <%= dog.breeds %></div>
   <div>Age: <%= dog.age %></div>
   <div>Sex: <%= dog.sex %></div>
   <div>Address: <%= dog.contact.full_address %></div>

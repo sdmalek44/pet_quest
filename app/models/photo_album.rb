@@ -21,4 +21,8 @@ class PhotoAlbum
     @photos[1][300].url if @photos[1][300]
   end
 
+  def profile_photo
+    @photos[1][500].url if @photos[1][500]
+  end
+
 end

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get "/search", to: "search#index"
 
   namespace :search do
-    resources :dogs, only: [:index, :create]
+    resources :dogs, only: [:index, :show]
   end
 end

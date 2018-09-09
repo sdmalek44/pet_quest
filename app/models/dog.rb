@@ -14,7 +14,7 @@ class Dog
     @age = info[:age][:$t]
     @name = info[:name][:$t]
     @sex = info[:sex][:$t]
-    @size = info[:size][:$t]
+    @size = convert_size[info[:size][:$t]]
     @photos = PhotoAlbum.new(info)
     @id = info[:id][:$t]
     @breeds = get_breeds(info[:breeds][:breed])
@@ -32,5 +32,13 @@ class Dog
 
   def breeds
     @breeds.join(", ") if @breeds
+  end
+
+  def convert_size
+    { "S" => "Small",
+      "M" => "Medium",
+      "L" => "Large",
+      "XL" => "Very Large"
+    }
   end
 end
