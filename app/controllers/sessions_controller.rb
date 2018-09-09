@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
     session[:user_id] = nil
     last_path = params[:last_path]
     if params[:last_path]
