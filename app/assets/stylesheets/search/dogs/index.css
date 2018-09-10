@@ -1,0 +1,87 @@
+#pet-search {
+  background-color: rgba(239, 238, 241);
+}
+
+.search-form {
+  background-color: #CCCCCC;
+  height: 80px;
+  border: 2px solid #4C4C4C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet-box {
+  border-radius: 8px;
+  width: 300px;
+  height: 400px;
+  font-size: 20;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: #DBDBDB;
+  border: 1px solid #909690;
+
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.attribute {
+  color: #626862;
+}
+
+.thumbnail-pic {
+  width: 300px;
+  position: absolute;
+  clip: rect(10px,285px,220px,10px);
+}
+
+.pet-thumb-info {
+  border: 1px solid #EDEDED;
+  background-color: white;
+  width: 280px;
+  height: 150px;
+  position: relative;
+  border-radius: 8px;
+  top: 230px;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pet-name {
+  color: #174B0A;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.dropdown {
+  -webkit-appearance: none;
+  border-radius: 10px;
+  border: 1px solid #DBDBDB;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+.submit {
+  background-color: green;
+  color: white;
+}
+
+.option {
+  width: 200px;
+
+}
+
+#search-area {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+}
