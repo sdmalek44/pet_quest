@@ -40,21 +40,19 @@
   </form>
   <section id="search-area">
 
-  <% if @dogs %>
-    <% @dogs.each do |dog| %>
+  <% presenter.dogs.each do |dog| %>
     <a class="card-link" href="/search/dogs/<%= dog.id %>">
-      <article class="pet-box">
-          <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
-        <article class="pet-thumb-info">
-          <div class="pet-name"><%= dog.name %></div>
-          <div class="attribute"><%= dog.breeds %></div>
-          <div class="attribute"><%= dog.age %> <%= dog.sex %></div>
-          <div class="attribute"><%= dog.contact.street %></div>
-          <div class="attribute"><%= dog.contact.city_state_zip %></div>
-      </article>
+        <article class="pet-box">
+            <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
+          <article class="pet-thumb-info">
+            <div class="pet-name"><%= dog.name %></div>
+            <div class="attribute"><%= dog.breeds %></div>
+            <div class="attribute"><%= dog.age %> <%= dog.sex %></div>
+            <div class="attribute"><%= dog.contact.street %></div>
+            <div class="attribute"><%= dog.contact.city_state_zip %></div>
+        </article>
       </article>
     </a>
-    <% end %>
   <% end %>
   </section>
 
