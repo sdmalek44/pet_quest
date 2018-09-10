@@ -15,6 +15,10 @@ class Contact
     @street = info[:address1][:$t] if info[:address1][:$t]
   end
 
+  def city_state_zip
+    "#{@city}, #{@state} #{@zip}"
+  end
+
   def full_address
     "#{@street} #{@city}, #{@state} #{@zip}"
   end

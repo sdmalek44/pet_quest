@@ -13,7 +13,7 @@ class Dog
     @contact = Contact.new(info[:contact]) if info[:contact]
     @age = info[:age][:$t]
     @name = info[:name][:$t]
-    @sex = info[:sex][:$t]
+    @sex = convert_gender[info[:sex][:$t]]
     @size = convert_size[info[:size][:$t]]
     @photos = PhotoAlbum.new(info)
     @id = info[:id][:$t]
@@ -39,6 +39,13 @@ class Dog
       "M" => "Medium",
       "L" => "Large",
       "XL" => "Very Large"
+    }
+  end
+
+  def convert_gender
+    {
+      "M" => "Male",
+      "F" => "Female"
     }
   end
 end

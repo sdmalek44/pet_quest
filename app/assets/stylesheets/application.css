@@ -17,9 +17,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-image: url('https://oneadamtwelv.files.wordpress.com/2012/04/p5102156.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+
   font-family: 'Rock Salt', cursive;
   color: white;
 
@@ -32,7 +30,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid white;
+}
+
+#the-business {
+  background-image: url('https://oneadamtwelv.files.wordpress.com/2012/04/p5102156.jpg');
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .inner-nav {
@@ -143,6 +146,8 @@ div.slogan-text {
 .marg-left-25 {
   margin-left: 25px;
 }
+
+
 
 #foot {
 }
