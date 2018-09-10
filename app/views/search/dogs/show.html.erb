@@ -2,23 +2,34 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
-  <body class="font-black">
-    <img src="<%= presenter.dog.photos.profile_photo %>" alt="">
-    <h1><%= presenter.dog.name %></h1>
-    <div><%= presenter.dog.contact.full_address %></div>
-    <% presenter.breeds.each do |breed| %>
-      <div class=""><%= breed %></div>
-    <% end %>
-    <div class="">Age: <%= presenter.dog.age %></div>
-    <div class="">Gender: <%= presenter.dog.sex %></div>
-    <div class="">Size: <%= presenter.dog.size %></div>
-    <h3>Profile</h3>
-    <p> <%= presenter.dog.description %></p>
-    <div>Contact Info:</div>
-    <ul class="">
-      <li>Phone: <%= presenter.dog.contact.number %></li>
-      <li>Email: <%= presenter.dog.contact.email %></li>
-    </ul>
+  <body class="font-black ">
+    <section class="pet-show">
+      <article class="pet-show-card">
+      <section class="info-and-photo">
+        <img class="big-photo" src="<%= presenter.dog.photos.profile_photo %>" alt="">
+        <article class="basic-info">
+          <div class="pet-name-show"><%= presenter.dog.name %></div>
+          <article class="">
+            <% presenter.dog.breeds.each do |breed| %>
+              <div class="attributes-show"><%= breed %></div>
+            <% end %>
+            <div class="attributes-show"><%= presenter.dog.age %> - <%= presenter.dog.sex %> - <%= presenter.dog.size %> sized</div>
+            <div class="attributes-show"><%= presenter.dog.contact.full_address %></div>
+          </article>
+          <article class="">
+            <div class="attributes-show underline">Contact Info</div>
+            <div class="attributes-show"><%= presenter.dog.contact.number %></div>
+            <div class="attributes-show"><%= presenter.dog.contact.email %></div>
+          </article>
+        </article>
+      </section>
+      <article class="description marg-top-20 color-gray">
+        <div class="underline marg-left-10 marg-bottom-10 font-18">Profile</div>
+        <div class="attributes-show font-18"> <%= presenter.dog.description %></div>
+      </article>
+    </article>
+  </section>
   </body>
 </html>
