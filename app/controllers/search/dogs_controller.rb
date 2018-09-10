@@ -2,10 +2,11 @@ class Search::DogsController < ApplicationController
 
   def index
     if search_params[:breed]
-      query = ""
-      search_params.each { |key, value| query += "#{key}=#{value}&" unless value.empty? }
-      query.chop!
-
+      query = search_params.to_h.inject("") do |collector, (key, value)|
+        collector += "#{key}=#{value}&" unless value.empty?
+        collector
+      end.chop!
+      
       conn = Faraday.new(url: "http://api.petfinder.com") { |faraday| faraday.adapter Faraday.default_adapter }
       zip = 80209
       response = conn.get("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=dog&location=#{zip}&#{query}&format=json&output=full")
