@@ -7,7 +7,9 @@
     <img src="<%= presenter.dog.photos.profile_photo %>" alt="">
     <h1><%= presenter.dog.name %></h1>
     <div><%= presenter.dog.contact.full_address %></div>
-    <div class="">Breed: <%= presenter.dog.breeds %></div>
+    <% presenter.breeds.each do |breed| %>
+      <div class=""><%= breed %></div>
+    <% end %>
     <div class="">Age: <%= presenter.dog.age %></div>
     <div class="">Gender: <%= presenter.dog.sex %></div>
     <div class="">Size: <%= presenter.dog.size %></div>

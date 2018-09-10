@@ -47,9 +47,13 @@
             <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
           <article class="pet-thumb-info">
             <div class="pet-name"><%= dog.name %></div>
-            <div class="attribute"><%= dog.breeds %></div>
+            <div>
+
+              <% dog.breeds.each do |breed| %>
+                <div class="attribute  small"><%= breed %></div>
+              <% end %>
+            </div>
             <div class="attribute"><%= dog.age %> <%= dog.sex %></div>
-            <div class="attribute"><%= dog.contact.street %></div>
             <div class="attribute"><%= dog.contact.city_state_zip %></div>
         </article>
       </article>

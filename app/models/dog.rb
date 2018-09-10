@@ -7,7 +7,8 @@ class Dog
               :photos,
               :id,
               :description,
-              :last_update
+              :last_update,
+              :breeds
 
   def initialize(info)
     @contact = Contact.new(info[:contact]) if info[:contact]
@@ -29,10 +30,6 @@ class Dog
     elsif breed_info.class == Array
       breed_info.map { |info| info[:$t] }
     end
-  end
-
-  def breeds
-    @breeds.join(", ") if @breeds
   end
 
   def convert_size
