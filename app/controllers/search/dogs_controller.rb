@@ -6,10 +6,9 @@ class Search::DogsController < ApplicationController
         collector += "#{key}=#{value}&" unless value.empty?
         collector
       end.chop!
-      
+
       conn = Faraday.new(url: "http://api.petfinder.com") { |faraday| faraday.adapter Faraday.default_adapter }
-      zip = 80209
-      response = conn.get("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=dog&location=#{zip}&#{query}&format=json&output=full")
+      response = conn.get("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=dog&location=80209&#{query}&format=json&output=full")
       dogs_info = JSON.parse(response.body, symbolize_names: true)[:petfinder][:pets][:pet]
 
       @dogs = dogs_info.map { |dog_info| Dog.new(dog_info) }
