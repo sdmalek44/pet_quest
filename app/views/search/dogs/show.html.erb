@@ -7,29 +7,29 @@
   <body class="font-black ">
     <section class="pet-show">
       <article class="pet-show-card">
-      <section class="info-and-photo">
-        <img class="big-photo" src="<%= presenter.dog.photos.profile_photo %>" alt="">
-        <article class="basic-info">
-          <div class="pet-name-show"><%= presenter.dog.name %></div>
-          <article class="">
-            <% presenter.dog.breeds.each do |breed| %>
-              <div class="attributes-show"><%= breed %></div>
-            <% end %>
-            <div class="attributes-show"><%= presenter.dog.age %> - <%= presenter.dog.sex %> - <%= presenter.dog.size %> sized</div>
-            <div class="attributes-show"><%= presenter.dog.contact.full_address %></div>
+        <section class="info-and-photo">
+          <img class="big-photo" src="<%= presenter.dog.photos.profile_photo %>" alt="">
+          <article class="basic-info">
+            <div class="pet-name-show"><%= presenter.dog.name %></div>
+            <article class="">
+              <% presenter.dog.breeds.each do |breed| %>
+                <div class="attributes-show"><%= breed %></div>
+              <% end %>
+              <div class="attributes-show"><%= presenter.dog.age %> - <%= presenter.dog.sex %> - <%= presenter.dog.size %> sized</div>
+              <div class="attributes-show"><%= presenter.dog.contact.full_address %></div>
+            </article>
+            <article class="">
+              <div class="attributes-show underline">Contact Info</div>
+              <div class="attributes-show"><%= presenter.dog.contact.number %></div>
+              <div class="attributes-show"><%= presenter.dog.contact.email %></div>
+            </article>
           </article>
-          <article class="">
-            <div class="attributes-show underline">Contact Info</div>
-            <div class="attributes-show"><%= presenter.dog.contact.number %></div>
-            <div class="attributes-show"><%= presenter.dog.contact.email %></div>
-          </article>
+        </section>
+        <article class="description marg-top-20 color-gray">
+          <div class="underline marg-left-10 marg-bottom-10 font-18">Profile</div>
+          <div class="attributes-show font-18"> <%= presenter.dog.description %></div>
         </article>
-      </section>
-      <article class="description marg-top-20 color-gray">
-        <div class="underline marg-left-10 marg-bottom-10 font-18">Profile</div>
-        <div class="attributes-show font-18"> <%= presenter.dog.description %></div>
-      </article>
-    </article>
-  </section>
+     </article>
+   </section>
   </body>
 </html>
