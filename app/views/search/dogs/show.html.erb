@@ -1,23 +1,22 @@
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body class="font-black">
-    <img src="<%= @dog.photos.profile_photo %>" alt="">
-    <h1><%= @dog.name %></h1>
-    <div><%= @dog.contact.full_address %></div>
-    <div class="">Breed: <%= @dog.breeds %></div>
-    <div class="">Age: <%= @dog.age %></div>
-    <div class="">Gender: <%= @dog.sex %></div>
-    <div class="">Size: <%= @dog.size %></div>
+    <img src="<%= presenter.dog.photos.profile_photo %>" alt="">
+    <h1><%= presenter.dog.name %></h1>
+    <div><%= presenter.dog.contact.full_address %></div>
+    <div class="">Breed: <%= presenter.dog.breeds %></div>
+    <div class="">Age: <%= presenter.dog.age %></div>
+    <div class="">Gender: <%= presenter.dog.sex %></div>
+    <div class="">Size: <%= presenter.dog.size %></div>
     <h3>Profile</h3>
-    <p> <%= @dog.description %></p>
+    <p> <%= presenter.dog.description %></p>
     <div>Contact Info:</div>
     <ul class="">
-      <li>Phone: <%= @dog.contact.number %></li>
-      <li>Email: <%= @dog.contact.email %></li>
+      <li>Phone: <%= presenter.dog.contact.number %></li>
+      <li>Email: <%= presenter.dog.contact.email %></li>
     </ul>
   </body>
 </html>

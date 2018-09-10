@@ -11,8 +11,9 @@
     <div class="search-title">Breed</div>
     <select class="dropdown" name="breed">
       <option class="option" value="">Any</option>
-      <option value="Golden Retriever">Golden Retriever</option>
-      <option value="Boxer">Boxer</option>
+      <% presenter.breeds.each do |breed| %>
+      <option value="<%= breed.name %>"><%= breed.name %></option>
+      <% end %>
     </select>
     <div class="search-title">Age</div>
     <select class="dropdown" name="age">

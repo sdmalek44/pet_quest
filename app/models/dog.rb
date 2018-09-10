@@ -15,7 +15,8 @@ class Dog
     @name = info[:name][:$t]
     @sex = convert_gender[info[:sex][:$t]]
     @size = convert_size[info[:size][:$t]]
-    @photos = PhotoAlbum.new(info)
+    @photos = PhotoAlbum.new(info[:media]) unless info[:media].empty?
+    @photos = NullPhotoAlbum.new if info[:media].empty?
     @id = info[:id][:$t]
     @breeds = get_breeds(info[:breeds][:breed])
     @description = info[:description][:$t]

@@ -4,7 +4,7 @@ class PhotoAlbum
   end
 
   def make_photos(info)
-    info[:media][:photos][:photo].map do |photo_info|
+    info[:photos][:photo].map do |photo_info|
       Photo.new(photo_info)
     end
   end
