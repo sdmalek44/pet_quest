@@ -8,11 +8,14 @@
   <body id="pet-search">
 <section>
   <form class="search-form" action="/search/dogs" method="get">
+    <div class="search-title">Breed</div>
     <select class="dropdown" name="breed">
       <option class="option" value="">Any</option>
-      <option value="Golden Retriever">Golden Retriever</option>
-      <option value="Boxer">Boxer</option>
+      <% presenter.breeds.each do |breed| %>
+      <option value="<%= breed.name %>"><%= breed.name %></option>
+      <% end %>
     </select>
+    <div class="search-title">Age</div>
     <select class="dropdown" name="age">
       <option class="option" value="">Any</option>
       <option value="Baby">Baby</option>
@@ -20,6 +23,7 @@
       <option value="Adult">Adult</option>
       <option value="Senior">Senior</option>
     </select>
+    <div class="search-title">Size</div>
     <select class="dropdown" name="size">
       <option value="">Any</option>
       <option value="S">Small</option>
@@ -27,6 +31,7 @@
       <option value="L">Large</option>
       <option value="XL">XL</option>
     </select>
+    <div class="search-title">Gender</div>
     <select class="dropdown" name="sex">
       <option value="">Any</option>
       <option value="M">Male</option>
@@ -36,21 +41,23 @@
   </form>
   <section id="search-area">
 
-  <% if @dogs %>
-    <% @dogs.each do |dog| %>
+  <% presenter.dogs.each do |dog| %>
     <a class="card-link" href="/search/dogs/<%= dog.id %>">
-      <article class="pet-box">
-          <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
-        <article class="pet-thumb-info">
-          <div class="pet-name"><%= dog.name %></div>
-          <div class="attribute"><%= dog.breeds %></div>
-          <div class="attribute"><%= dog.age %> <%= dog.sex %></div>
-          <div class="attribute"><%= dog.contact.street %></div>
-          <div class="attribute"><%= dog.contact.city_state_zip %></div>
-      </article>
+        <article class="pet-box">
+            <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
+          <article class="pet-thumb-info">
+            <div class="pet-name"><%= dog.name %></div>
+            <div>
+
+              <% dog.breeds.each do |breed| %>
+                <div class="attribute  small"><%= breed %></div>
+              <% end %>
+            </div>
+            <div class="attribute"><%= dog.age %> <%= dog.sex %></div>
+            <div class="attribute"><%= dog.contact.city_state_zip %></div>
+        </article>
       </article>
     </a>
-    <% end %>
   <% end %>
   </section>
 

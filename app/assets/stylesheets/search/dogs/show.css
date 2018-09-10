@@ -1,0 +1,82 @@
+.font-black {
+  font-family: 'Raleway', sans-serif;
+  color: black;
+}
+
+.pet-show {
+  display: flex;
+  justify-content: center;
+}
+
+.pet-show-card {
+  width: 900px;
+  background-color: #bcbcbc;
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-and-photo {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ededed;
+  border-radius: 30px;
+}
+
+.pet-name-show {
+  color: #174B0A;
+  font-size: 45px;
+  text-align: center;
+}
+
+.color-gray {
+  color: #174B0A;
+}
+
+.big-photo {
+  height: 400px;
+  max-width: 480px;
+  border-radius: 15px;
+}
+
+
+.basic-info {
+  width: 418px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.attributes-show {
+  color: #444444;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.marg-left-10 {
+  margin-left: 10px;
+}
+
+.marg-bottom-10 {
+  margin-bottom: 10px;
+}
+.marg-top-20 {
+  margin-top: 20px;
+}
+
+.description {
+  border-radius: 15px;
+  padding-bottom: 5px;
+  background-color: #ededed;
+}
