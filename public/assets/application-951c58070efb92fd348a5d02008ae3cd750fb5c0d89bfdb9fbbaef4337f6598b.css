@@ -1,3 +1,194 @@
+#pet-search {
+  background-color: rgba(239, 238, 241);
+}
+
+.search-form {
+  background-color: #CCCCCC;
+  height: 80px;
+  border-bottom: .5px solid #605f5f;
+  border-top: .5px solid #605f5f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet-box {
+  border-radius: 8px;
+  width: 290px;
+  height: 400px;
+  font-size: 20;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: #DBDBDB;
+  border: 1px solid #c4c4c4;
+
+}
+
+.small {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.attribute {
+  color: #626862;
+}
+
+.thumbnail-pic {
+  width: 300px;
+  position: absolute;
+  clip: rect(10px,278px,235px,10px);
+}
+
+.pet-thumb-info {
+  border: 1px solid #EDEDED;
+  background-color: white;
+  width: 270px;
+  height: 150px;
+  position: relative;
+  border-radius: 8px;
+  top: 239px;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pet-name {
+  color: #174B0A;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.dropdown {
+  -webkit-appearance: none;
+  border-radius: 10px;
+  background-color: #EDEDED;
+  border: .5px solid #605f5f;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  margin-right: 30px;
+  color: #605f5f;
+  padding-left: 10px;
+}
+
+.search-title {
+  margin-right: 10px;
+  color: #174B0A
+}
+
+.submit {
+  border: .5px solid #605f5f;
+  background-color: green;
+  color: white;
+}
+
+.option {
+  width: 200px;
+  color: #605f5f;
+
+}
+
+#search-area {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+}
+.font-black {
+  font-family: 'Raleway', sans-serif;
+  color: black;
+}
+
+.pet-show {
+  display: flex;
+  justify-content: center;
+}
+
+.pet-show-card {
+  width: 900px;
+  background-color: #ededed;
+  border: 5px solid #006600;
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-and-photo {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.pet-name-show {
+  color: #174B0A;
+  font-size: 45px;
+  text-align: center;
+}
+
+.color-gray {
+  color: #174B0A;
+}
+
+.big-photo {
+  height: 400px;
+  max-width: 480px;
+  border-radius: 15px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+
+.basic-info {
+  width: 418px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.attributes-show {
+  color: #444444;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.marg-left-10 {
+  margin-left: 10px;
+}
+
+.marg-bottom-10 {
+  margin-bottom: 10px;
+}
+.marg-top-20 {
+  margin-top: 20px;
+}
+
+.description {
+  border-radius: 15px;
+  padding-bottom: 5px;
+  background-color: white;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,9 +201,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 
 body {
   padding: 0;
