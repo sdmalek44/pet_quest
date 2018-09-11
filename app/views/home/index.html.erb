@@ -9,9 +9,9 @@
       </article>
       <section class="middle">
         <article class="cat-dog-box">
-          <a class="dog-link" href="/search/dogs"><img class="animal-click" src="/assets/puppy_pic_433.jpg" alt=""></a>
-          <a class="cat-link" href="/search/cats"><img class="animal-click" src="/assets/cat_433.jpg" alt=""></a>
-          <img class="animal-click" src="/assets/rabbits_fotor.jpg" alt="">
+          <a class="dog-click" href="/search/dogs"><div class="animal-message">Search for Dogs</div></a>
+          <a class="cat-click" href="/search/cats"><div class="animal-message">Search for Cats</div></a>
+          <a class="animal-click" href="/"><div class="animal-message">Search for Other Animals</div></a>
         </article>
       </section>
     <article class="lower-banner">
@@ -33,8 +33,15 @@
       </div>
     </article>
   </main>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
-      $('.dog-link').on('mouseenter', function () {
-        $('.dog-link').css('background-color', 'red');
-      })
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script type="text/javascript">
+    $(function(){
+      $(".animal-message").css("opacity",0).fadeTo(0, 0);
+      $(".animal-message").mouseover(function () {
+        $(this).fadeTo(200, 1);
+      });
+      $(".animal-message").mouseout(function () {
+        $(this).fadeTo(200, 0);
+      });
+    });
   </script>
