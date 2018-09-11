@@ -2,7 +2,6 @@ class HomeController < ApplicationController
   helper_method :presenter
 
   def index
-
   end
 
   private

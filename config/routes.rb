@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   namespace :search do
     resources :dogs, only: [:index, :show]
+    resources :cats, only: [:index, :show]
   end
 end
