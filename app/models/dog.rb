@@ -8,7 +8,8 @@ class Dog
               :id,
               :description,
               :last_update,
-              :breeds
+              :breeds,
+              :shelter_id
 
   def initialize(info)
     @contact = Contact.new(info[:contact]) if info[:contact]
@@ -19,6 +20,7 @@ class Dog
     @photos = PhotoAlbum.new(info[:media]) unless info[:media].empty?
     @photos = NullPhotoAlbum.new if info[:media].empty?
     @id = info[:id][:$t]
+    @shelter_id = info[:shelterId][:$t]
     @breeds = get_breeds(info[:breeds][:breed])
     @description = info[:description][:$t]
     @last_update = DateTime.parse(info[:lastUpdate][:$t]) if info[:lastUpdate][:$t]
