@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  </head>
+  <body id="pet-search">
+    <section>
+      <form class="search-form" action="/search/cats" method="get">
+        <div class="search-title">Breed</div>
+        <select class="dropdown" name="breed">
+          <option class="option" value="">Any</option>
+          <% presenter.breeds.each do |breed| %>
+          <option value="<%= breed.name %>"><%= breed.name %></option>
+          <% end %>
+        </select>
+        <div class="search-title">Age</div>
+        <select class="dropdown" name="age">
+          <option class="option" value="">Any</option>
+          <option value="Baby">Baby</option>
+          <option value="Young">Young</option>
+          <option value="Adult">Adult</option>
+          <option value="Senior">Senior</option>
+        </select>
+        <div class="search-title">Size</div>
+        <select class="dropdown" name="size">
+          <option value="">Any</option>
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+          <option value="XL">XL</option>
+        </select>
+        <div class="search-title">Gender</div>
+        <select class="dropdown" name="sex">
+          <option value="">Any</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+        <input class="dropdown submit" type="submit" value="Search">
+      </form>
+      <section id="search-area">
+
+      <% presenter.cats.each do |cat| %>
+        <a class="card-link" href="/search/cats/<%= cat.id %>">
+            <article class="pet-box">
+                <img class="thumbnail-pic" src="<%= cat.photos.thumbnail_photo %>" alt="">
+              <article class="pet-thumb-info">
+                <div class="pet-name"><%= cat.name %></div>
+                <div>
+
+                  <% cat.breeds.each do |breed| %>
+                    <div class="attribute  small"><%= breed %></div>
+                  <% end %>
+                </div>
+                <div class="attribute"><%= cat.age %> <%= cat.sex %></div>
+                <div class="attribute"><%= cat.contact.city_state_zip %></div>
+            </article>
+          </article>
+        </a>
+      <% end %>
+      </section>
+
+    </section>
+
+  </body>
+</html>

@@ -10,7 +10,8 @@
 
 .pet-show-card {
   width: 900px;
-  background-color: #bcbcbc;
+  background-color: #ededed;
+  border: 5px solid #006600;
   padding: 30px;
   border-radius: 15px;
   margin-top: 30px;
@@ -20,7 +21,7 @@
 .info-and-photo {
   display: flex;
   justify-content: space-between;
-  background-color: #ededed;
+  background-color: white;
   border-radius: 30px;
 }
 
@@ -38,6 +39,8 @@
   height: 400px;
   max-width: 480px;
   border-radius: 15px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 
@@ -78,5 +81,5 @@
 .description {
   border-radius: 15px;
   padding-bottom: 5px;
-  background-color: #ededed;
+  background-color: white;
 }

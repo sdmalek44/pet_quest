@@ -73,6 +73,10 @@ body {
   background-color: white;
 }
 
+#nav .inner-nav .thinga a:hover {
+  background-color: #006600;
+}
+
 .banner {
   display: flex;
   flex-direction: column;
@@ -149,6 +153,18 @@ div.slogan-text {
   margin-left: 25px;
 }
 
+.right-nav {
+  height: 100%;
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.welcome-message {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
 
 
 #foot {
