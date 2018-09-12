@@ -83,3 +83,35 @@
   padding-bottom: 5px;
   background-color: white;
 }
+
+.shelter-map-box {
+  background-color: #ededed;
+  border: 5px solid #006600;
+  border-radius: 15px;
+  height: 680px;
+  width: 400px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#shelter-map {
+  height: 350px;
+  margin-top: 25px;
+  border-radius: 15px;
+  background-color: white;
+  width: 90%;
+}
+
+.shelter-info-box {
+  margin-bottom: 25px;
+  border-radius: 15px;
+  height: 250px;
+  width: 90%;
+  background-color: white;
+
+}

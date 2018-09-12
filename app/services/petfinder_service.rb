@@ -24,7 +24,7 @@ class PetfinderService
   end
 
   def shelter(shelter_id)
-    get_json("/shelter.get?key=#{ENV['PET_FINDER_TOKEN']}&id=#{shelter_id}&format=json")
+    get_json("/shelter.get?key=#{ENV['PET_FINDER_TOKEN']}&id=#{shelter_id}&format=json")[:petfinder][:shelter]
   end
 
   private

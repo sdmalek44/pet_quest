@@ -15,7 +15,8 @@ class DogSearchPresenter < BasePresenter
   end
 
   def shelter
-    service.shelter(dog.shelter_id)
+    shelter_info = service.shelter(dog.shelter_id)
+    Shelter.new(shelter_info)
   end
 
   def dog
