@@ -14,8 +14,13 @@ class DogSearchPresenter < BasePresenter
     service.breeds('dog').map {|breed_info| Breed.new(breed_info[:$t])}
   end
 
+  def shelter
+    shelter_info = service.shelter(dog.shelter_id)
+    Shelter.new(shelter_info)
+  end
+
   def dog
-    Dog.new(service.animal)
+    @dog ||= Dog.new(service.animal)
   end
 
 end

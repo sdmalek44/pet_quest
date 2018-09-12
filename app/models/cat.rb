@@ -8,7 +8,8 @@ class Cat
               :id,
               :description,
               :last_update,
-              :breeds
+              :breeds,
+              :shelter_id
 
   def initialize(info)
     @contact = Contact.new(info[:contact]) if info[:contact]
@@ -22,6 +23,7 @@ class Cat
     @breeds = get_breeds(info[:breeds][:breed])
     @description = info[:description][:$t]
     @last_update = DateTime.parse(info[:lastUpdate][:$t]) if info[:lastUpdate][:$t]
+    @shelter_id = info[:shelterId][:$t]
   end
 
   def get_breeds(breed_info)

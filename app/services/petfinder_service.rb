@@ -23,6 +23,10 @@ class PetfinderService
     get_json("/pet.get?key=#{ENV['PET_FINDER_TOKEN']}&#{build_query}&format=json")[:petfinder][:pet]
   end
 
+  def shelter(shelter_id)
+    get_json("/shelter.get?key=#{ENV['PET_FINDER_TOKEN']}&id=#{shelter_id}&format=json")[:petfinder][:shelter]
+  end
+
   private
 
   def conn
