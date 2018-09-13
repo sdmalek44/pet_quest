@@ -7,7 +7,11 @@ class DogSearchPresenter < BasePresenter
   end
 
   def dogs
-    service.animals('dog').map { |dog_info| Dog.new(dog_info) }
+    if service.animals('dog')
+      service.animals('dog').map { |dog_info| Dog.new(dog_info) }
+    else
+      []
+    end
   end
 
   def breeds

@@ -13,6 +13,6 @@ class Search::CatsController < ApplicationController
   end
 
   def search_params
-    params.permit(:breed, :age, :size, :sex, :id)
+    params.permit(:breed, :age, :size, :sex, :id, :latitude, :longitude)
   end
 end

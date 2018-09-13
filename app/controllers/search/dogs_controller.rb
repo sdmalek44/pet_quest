@@ -1,6 +1,7 @@
 class Search::DogsController < ApplicationController
 
   def index
+
   end
 
   def show
@@ -13,6 +14,6 @@ class Search::DogsController < ApplicationController
   end
 
   def search_params
-    params.permit(:breed, :age, :size, :sex, :id)
+    params.permit(:breed, :age, :size, :sex, :id, :latitude, :longitude)
   end
 end

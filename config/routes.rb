@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :dogs, only: [:index, :show]
     resources :cats, only: [:index, :show]
   end
+
+  post '/location', to: "location#create"
 end

@@ -11,20 +11,28 @@ class PetfinderService
     end.chop!
   end
 
+  def user_location
+    unless @param_info.empty?
+      Geocoder.search([@param_info[:latitude], @param_info[:longitude]]).first.data['address']['postcode']
+    else
+      80209
+    end
+  end
+
   def animals(animal)
-    get_json("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&location=80209&#{build_query}&format=json&output=full")[:petfinder][:pets][:pet]
+    @animals ||= get_json("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&location=#{user_location}&#{build_query}&format=json&output=full")[:petfinder][:pets][:pet]
   end
 
   def breeds(animal)
-    get_json("/breed.list?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&format=json")[:petfinder][:breeds][:breed]
+    @breeds ||= get_json("/breed.list?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&format=json")[:petfinder][:breeds][:breed]
   end
 
   def animal
-    get_json("/pet.get?key=#{ENV['PET_FINDER_TOKEN']}&#{build_query}&format=json")[:petfinder][:pet]
+    @animal ||= get_json("/pet.get?key=#{ENV['PET_FINDER_TOKEN']}&#{build_query}&format=json")[:petfinder][:pet]
   end
 
   def shelter(shelter_id)
-    get_json("/shelter.get?key=#{ENV['PET_FINDER_TOKEN']}&id=#{shelter_id}&format=json")[:petfinder][:shelter]
+    @shelter ||= get_json("/shelter.get?key=#{ENV['PET_FINDER_TOKEN']}&id=#{shelter_id}&format=json")[:petfinder][:shelter]
   end
 
   private
