@@ -38,7 +38,7 @@
     <section id="search-area">
 
     <% presenter.dogs.each do |dog| %>
-      <a class="card-link" href="/search/dogs/<%= dog.id %>">
+      <a class="card-link" href="<%= search_dog_path(id: dog.id, name: dog.name, location: dog.contact.zip, size: dog.size.first, breed: dog.breeds.first, age: dog.age.first) %>">
           <article class="pet-box">
               <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
             <article class="pet-thumb-info">
