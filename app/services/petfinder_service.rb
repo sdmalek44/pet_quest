@@ -12,7 +12,7 @@ class PetfinderService
   end
 
   def user_location
-    unless @param_info.empty?
+    unless @param_info[:latitude].nil? || @param_info[:latitude].empty?
       Geocoder.search([@param_info[:latitude], @param_info[:longitude]]).first.data['address']['postcode']
     else
       80209
@@ -21,6 +21,9 @@ class PetfinderService
 
   def animals(animal)
     @animals ||= get_json("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&location=#{user_location}&#{build_query}&format=json&output=full")[:petfinder][:pets][:pet]
+    return [] if @animals.nil?
+    return @animals if @animals.class == Array
+    return [@animals] if @animals.class == Hash
   end
 
   def breeds(animal)

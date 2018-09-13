@@ -1,9 +1,9 @@
 class Dog
   attr_reader :contact,
-              :name,
               :age,
               :sex,
               :size,
+              :name,
               :photos,
               :id,
               :description,
@@ -24,6 +24,11 @@ class Dog
     @breeds = get_breeds(info[:breeds][:breed])
     @description = info[:description][:$t]
     @last_update = DateTime.parse(info[:lastUpdate][:$t]) if info[:lastUpdate][:$t]
+  end
+
+  def short_name
+    return @name if @name.length < 17
+    "#{@name[0..16]}.."
   end
 
   def get_breeds(breed_info)

@@ -7,11 +7,7 @@ class CatSearchPresenter < BasePresenter
   end
 
   def cats
-    if service.animals('cat')
-      service.animals('cat').map { |cat_info| Cat.new(cat_info) }
-    else
-      []
-    end
+    service.animals('cat').map { |cat_info| Cat.new(cat_info) }
   end
 
   def breeds
