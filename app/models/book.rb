@@ -11,6 +11,11 @@ class Book
     @date = book_info[:volumeInfo][:publishedDate]
     @description = book_info[:volumeInfo][:description]
     @link = book_info[:volumeInfo][:canonicalVolumeLink]
+    @image = book_info[:volumeInfo][:imageLinks][:thumbnail]
+  end
+
+  def image(size = 1)
+    @image.gsub("zoom=1", "zoom=#{size}")
   end
 
 end

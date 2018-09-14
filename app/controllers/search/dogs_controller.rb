@@ -6,7 +6,6 @@ class Search::DogsController < ApplicationController
 
   def show
     @presenter = DogPresenter.new(current_user, dog_params)
-    binding.pry
   end
 
   private
