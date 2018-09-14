@@ -7,7 +7,7 @@
         <div class="search-title">Breed</div>
         <select class="dropdown" name="breed">
           <option class="option" value="">Any</option>
-          <% presenter.breeds.each do |breed| %>
+          <% @presenter.breeds.each do |breed| %>
           <option value="<%= breed.name %>"><%= breed.name %></option>
           <% end %>
         </select>
@@ -37,7 +37,7 @@
       </form>
       <section id="search-area">
 
-      <% presenter.cats.each do |cat| %>
+      <% @presenter.cats.each do |cat| %>
         <a class="card-link" href="/search/cats/<%= cat.id %>">
             <article class="pet-box">
                 <img class="thumbnail-pic" src="<%= cat.photos.thumbnail_photo %>" alt="">

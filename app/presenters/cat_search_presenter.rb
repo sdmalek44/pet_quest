@@ -20,6 +20,6 @@ class CatSearchPresenter < BasePresenter
   end
 
   def cat
-    Cat.new(service.animal)
+    @cat ||= Cat.new(service.animal)
   end
 end

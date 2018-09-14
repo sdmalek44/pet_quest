@@ -3,26 +3,26 @@
     <section class="pet-show">
       <article class="pet-show-card">
         <section class="info-and-photo">
-          <img class="big-photo" src="<%= presenter.cat.photos.profile_photo %>" alt="">
+          <img class="big-photo" src="<%= @presenter.cat.photos.profile_photo %>" alt="">
           <article class="basic-info">
-            <div class="pet-name-show"><%= presenter.cat.name %></div>
+            <div class="pet-name-show"><%= @presenter.cat.name %></div>
             <article class="">
-              <% presenter.cat.breeds.each do |breed| %>
+              <% @presenter.cat.breeds.each do |breed| %>
                 <div class="attributes-show"><%= breed %></div>
               <% end %>
-              <div class="attributes-show"><%= presenter.cat.age %> - <%= presenter.cat.sex %> - <%= presenter.cat.size %> sized</div>
-              <div class="attributes-show"><%= presenter.cat.contact.full_address %></div>
+              <div class="attributes-show"><%= @presenter.cat.age %> - <%= @presenter.cat.sex %> - <%= @presenter.cat.size %> sized</div>
+              <div class="attributes-show"><%= @presenter.cat.contact.full_address %></div>
             </article>
             <article class="">
               <div class="attributes-show underline">Contact Info</div>
-              <div class="attributes-show"><%= presenter.cat.contact.number %></div>
-              <div class="attributes-show"><%= presenter.cat.contact.email %></div>
+              <div class="attributes-show"><%= @presenter.cat.contact.number %></div>
+              <div class="attributes-show"><%= @presenter.cat.contact.email %></div>
             </article>
           </article>
         </section>
         <article class="description marg-top-20 color-gray">
           <div class="underline marg-left-10 marg-bottom-10 font-18">Bio</div>
-          <div class="attributes-show font-18"> <%= presenter.cat.description %></div>
+          <div class="attributes-show font-18"> <%= @presenter.cat.description %></div>
         </article>
      </article>
      <aside class="shelter-map-box">
@@ -30,19 +30,19 @@
 
         </div>
         <div class="shelter-info-box">
-          <div><%= presenter.shelter.name %></div>
-          <div><%= presenter.shelter.phone %></div>
-          <div><%= presenter.shelter.email %></div>
-          <div><%= presenter.shelter.latitude %></div>
-          <div><%= presenter.shelter.longitude %></div>
+          <div><%= @presenter.shelter.name %></div>
+          <div><%= @presenter.shelter.phone %></div>
+          <div><%= @presenter.shelter.email %></div>
+          <div><%= @presenter.shelter.latitude %></div>
+          <div><%= @presenter.shelter.longitude %></div>
         </div>
       </section>
      </aside>
    </section>
  </main>
   <script>
-    var long = <%= presenter.shelter.longitude %>
-    var lat = <%= presenter.shelter.latitude %>
+    var long = <%= @presenter.shelter.longitude %>
+    var lat = <%= @presenter.shelter.latitude %>
     mapboxgl.accessToken = "pk.eyJ1Ijoic2RtYWxlazQ0IiwiYSI6ImNqbHlhc3IxZzA4ZGsza3BpeGU1aGV0MXgifQ.9MGdnq_vndt0cbN1Q5ybbA";
     var map = new mapboxgl.Map({
       container: 'shelter-map',
