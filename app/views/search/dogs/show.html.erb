@@ -37,6 +37,15 @@
       </section>
      </aside>
    </section>
+   <section>
+     <% @presenter.books.each do |book| %>
+        <img src="<%= book.image %>" alt="">
+        <h3><%= book.title %></h3>
+        <div><%= book.date %></div>
+        <div class=""><%= book.snippet %></div>
+        <a href="<%= book.link %>">View Book</a>
+     <% end %>
+   </section>
  </main>
 <script>
   var long = <%= @presenter.shelter.longitude %>

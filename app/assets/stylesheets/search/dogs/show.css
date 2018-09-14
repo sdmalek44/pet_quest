@@ -1,6 +1,7 @@
 .font-black {
   font-family: 'Raleway', sans-serif;
   color: black;
+  border: 2px solid blue;
 }
 
 .pet-show {

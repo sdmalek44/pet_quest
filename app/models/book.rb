@@ -2,15 +2,15 @@ class Book
   attr_reader :title,
               :authors,
               :date,
-              :description,
+              :snippet,
               :link
 
   def initialize(book_info)
     @title = book_info[:volumeInfo][:title]
     @authors = book_info[:volumeInfo][:authors]
     @date = book_info[:volumeInfo][:publishedDate]
-    @description = book_info[:volumeInfo][:description]
-    @link = book_info[:volumeInfo][:canonicalVolumeLink]
+    @snippet = book_info[:searchInfo][:textSnippet]
+    @link = book_info[:volumeInfo][:infoLink]
     @image = book_info[:volumeInfo][:imageLinks][:thumbnail]
   end
 
