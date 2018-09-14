@@ -7,11 +7,15 @@ class DogPresenter < BasePresenter
 
   def shelter
     shelter_info = @pet_service.shelter(dog.shelter_id)
-    Shelter.new(shelter_info)
+    Shelter.new(shelter_info) if shelter_info
   end
 
   def dog
-    @dog ||= Dog.new(@pet_service.animal)
+    if @pet_service.animal
+      @dog ||= Dog.new(@pet_service.animal)
+    elsif @pet_service.animal_hard_way('dog')
+      @dog ||= Dog.new(@pet_service.animal_hard_way('dog'))
+    end
   end
 
   def books(num = 3)

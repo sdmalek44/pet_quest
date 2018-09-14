@@ -1,7 +1,7 @@
 class Search::DogsController < ApplicationController
 
   def index
-    @presenter ||= DogSearchPresenter.new(current_user, search_params)
+    @presenter = DogSearchPresenter.new(current_user, search_params)
   end
 
   def show
@@ -15,6 +15,6 @@ class Search::DogsController < ApplicationController
   end
 
   def dog_params
-    params.permit(:id, :breed)
+    params.permit(:id, :name, :location, :size, :breed, :age, :sex)
   end
 end

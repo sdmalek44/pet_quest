@@ -29,11 +29,13 @@
         <div id="shelter-map">
 
         </div>
+      <% if @presenter.shelter %>
         <div class="shelter-info-box">
           <div><%= @presenter.shelter.name %></div>
           <div><%= @presenter.shelter.phone %></div>
           <div><%= @presenter.shelter.email %></div>
         </div>
+      <% end %>
       </section>
      </aside>
    </section>
@@ -47,17 +49,19 @@
      <% end %>
    </section>
  </main>
-<script>
-  var long = <%= @presenter.shelter.longitude %>
-  var lat = <%= @presenter.shelter.latitude %>
-  mapboxgl.accessToken = "pk.eyJ1Ijoic2RtYWxlazQ0IiwiYSI6ImNqbHlhc3IxZzA4ZGsza3BpeGU1aGV0MXgifQ.9MGdnq_vndt0cbN1Q5ybbA";
-  var map = new mapboxgl.Map({
-    container: 'shelter-map',
-    style: 'mapbox://styles/mapbox/streets-v10',
-    center: [long, lat],
-    zoom: 12.8
-    });
-    var marker = new mapboxgl.Marker()
-      .setLngLat([long, lat])
-      .addTo(map);
-</script>
+<% if @presenter.shelter %>
+  <script>
+    var long = <%= @presenter.shelter.longitude %>
+    var lat = <%= @presenter.shelter.latitude %>
+    mapboxgl.accessToken = "pk.eyJ1Ijoic2RtYWxlazQ0IiwiYSI6ImNqbHlhc3IxZzA4ZGsza3BpeGU1aGV0MXgifQ.9MGdnq_vndt0cbN1Q5ybbA";
+    var map = new mapboxgl.Map({
+      container: 'shelter-map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      center: [long, lat],
+      zoom: 12.8
+      });
+      var marker = new mapboxgl.Marker()
+        .setLngLat([long, lat])
+        .addTo(map);
+  </script>
+<% end %>
