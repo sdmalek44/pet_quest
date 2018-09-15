@@ -1,6 +1,8 @@
 
-  <main class="font-black ">
-    <section class="pet-show">
+<main class="font-black ">
+  <section class="pet-show">
+    <aside class="left-section">
+
       <article class="pet-show-card">
         <section class="info-and-photo">
           <img class="big-photo" src="<%= @presenter.dog.photos.profile_photo %>" alt="">
@@ -25,28 +27,36 @@
           <div class="attributes-show font-18"> <%= @presenter.dog.description %></div>
         </article>
      </article>
-     <aside class="shelter-map-box">
-        <div id="shelter-map">
+     <article class="books-outer">
+       <div class="books-heading">Here Are Some Great Resources about owning a <%= @presenter.dog.breeds.first %> <%= @presenter.animal_type.capitalize %></div>
+       <% @presenter.books.each do |book| %>
+         <div class="book-box">
+           <img class="book-image"src="<%= book.image %>" alt="">
+           <div class="book-side-car">
+             <div class="book-title"><%= book.title %></div>
+             <div><%= book.date %></div>
+             <div class=""><%= book.snippet %></div>
+             <a href="<%= book.link %>">View Book</a>
+           </div>
+         </div>
+       <% end %>
+     </article>
+   </aside>
 
-        </div>
-        <div class="shelter-info-box">
-          <div><%= @presenter.shelter.name if @presenter.shelter %></div>
-          <div><%= @presenter.dog.contact.number %></div>
-          <div><%= @presenter.dog.contact.email %></div>
-        </div>
-      </section>
-     </aside>
-   </section>
-   <section>
-     <% @presenter.books.each do |book| %>
-        <img src="<%= book.image %>" alt="">
-        <h3><%= book.title %></h3>
-        <div><%= book.date %></div>
-        <div class=""><%= book.snippet %></div>
-        <a href="<%= book.link %>">View Book</a>
-     <% end %>
-   </section>
- </main>
+   <aside class="shelter-map-box">
+      <div id="shelter-map">
+
+      </div>
+      <div class="shelter-info-box">
+        <div class="shelter-title"><%= @presenter.shelter.name if @presenter.shelter %></div>
+        <div class="text-center"><%= @presenter.dog.contact.number %></div>
+        <div class="text-center"><%= @presenter.dog.contact.email %></div>
+        <div class="text-center"><%= @presenter.dog.contact.full_address %></div>
+      </div>
+    </section>
+   </aside>
+ </section>
+</main>
   <script>
     var lat = <%= @presenter.shelter_coordinates[0] %>
     var long = <%= @presenter.shelter_coordinates[1] %>

@@ -5,6 +5,10 @@ class DogPresenter < BasePresenter
     super(user)
   end
 
+  def animal_type
+    'dog'
+  end
+
   def shelter
     shelter_info = @pet_service.shelter(dog.shelter_id)
     Shelter.new(shelter_info) if shelter_info
