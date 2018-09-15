@@ -14,12 +14,15 @@ class CatSearchPresenter < BasePresenter
     service.breeds('cat').map {|breed_info| Breed.new(breed_info[:$t])}
   end
 
-  def shelter
-    shelter_info = service.shelter(cat.shelter_id)
-    Shelter.new(shelter_info)
+  def books(num = 3)
+    book_service.training_books('dog', dog.breeds.first).shift(num).map do |book_info|
+      Book.new(book_info)
+    end
   end
 
-  def cat
-    @cat ||= Cat.new(service.animal)
+  private
+
+  def book_service
+    @book_service ||= BookService.new
   end
 end

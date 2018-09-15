@@ -38,7 +38,11 @@
       <section id="search-area">
 
       <% @presenter.cats.each do |cat| %>
-        <a class="card-link" href="/search/cats/<%= cat.id %>">
+        <a class="card-link" href="<%= search_cat_path(
+                                    id: cat.id, name: cat.name,
+                                    location: cat.contact.zip,
+                                    size: cat.size.first, breed: cat.breeds.first,
+                                    age: cat.age.first, sex: cat.sex.first) %>">
             <article class="pet-box">
                 <img class="thumbnail-pic" src="<%= cat.photos.thumbnail_photo %>" alt="">
               <article class="pet-thumb-info">
