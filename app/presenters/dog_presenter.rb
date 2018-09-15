@@ -10,6 +10,15 @@ class DogPresenter < BasePresenter
     Shelter.new(shelter_info) if shelter_info
   end
 
+  def contact_geocoder
+    @geocoder ||= Geocoder.search(dog.contact.geo_location_info).first.data
+  end
+
+  def shelter_coordinates
+    return [shelter.latitude, shelter.longitude] if shelter
+    [contact_geocoder['lat'], contact_geocoder['lon']]
+  end
+
   def dog
     if @pet_service.animal
       @dog ||= Dog.new(@pet_service.animal)

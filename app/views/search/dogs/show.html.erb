@@ -29,13 +29,11 @@
         <div id="shelter-map">
 
         </div>
-      <% if @presenter.shelter %>
         <div class="shelter-info-box">
-          <div><%= @presenter.shelter.name %></div>
-          <div><%= @presenter.shelter.phone %></div>
-          <div><%= @presenter.shelter.email %></div>
+          <div><%= @presenter.shelter.name if @presenter.shelter %></div>
+          <div><%= @presenter.dog.contact.number %></div>
+          <div><%= @presenter.dog.contact.email %></div>
         </div>
-      <% end %>
       </section>
      </aside>
    </section>
@@ -49,10 +47,10 @@
      <% end %>
    </section>
  </main>
-<% if @presenter.shelter %>
   <script>
-    var long = <%= @presenter.shelter.longitude %>
-    var lat = <%= @presenter.shelter.latitude %>
+    var lat = <%= @presenter.shelter_coordinates[0] %>
+    var long = <%= @presenter.shelter_coordinates[1] %>
+
     mapboxgl.accessToken = "pk.eyJ1Ijoic2RtYWxlazQ0IiwiYSI6ImNqbHlhc3IxZzA4ZGsza3BpeGU1aGV0MXgifQ.9MGdnq_vndt0cbN1Q5ybbA";
     var map = new mapboxgl.Map({
       container: 'shelter-map',
@@ -64,4 +62,3 @@
         .setLngLat([long, lat])
         .addTo(map);
   </script>
-<% end %>
