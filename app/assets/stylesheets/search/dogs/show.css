@@ -1,12 +1,69 @@
 .font-black {
-  font-family: 'Raleway', sans-serif;
-  color: black;
-  border: 2px solid blue;
+
 }
 
 .pet-show {
+  font-family: 'Raleway', sans-serif;
+  color: black;
   display: flex;
   justify-content: center;
+  padding-bottom: 30px;
+}
+
+.left-section {
+}
+
+.books-outer {
+    width: 900px;
+    background-color: #ededed;
+    border: 5px solid #006600;
+    padding: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 15px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-image {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.books-heading {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-size: 25px;
+  color: #002d00;
+}
+
+.book-box {
+  border-radius: 15px;
+  display: flex;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.book-title {
+  color: black;
+  font-size: 20px;
+}
+
+.book-side-car {
+  padding: 15px;
+  color: #444444;
+  width: 720px;
+  background-color: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .pet-show-card {
@@ -16,7 +73,7 @@
   padding: 30px;
   border-radius: 15px;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .info-and-photo {
@@ -98,6 +155,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-attachment: fixed;
+
 }
 
 #shelter-map {
@@ -108,11 +167,23 @@
   width: 90%;
 }
 
+.shelter-title {
+  font-size: 25px;
+  color: #006600;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
 .shelter-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   margin-bottom: 25px;
   border-radius: 15px;
   height: 250px;
   width: 90%;
   background-color: white;
-
+  font-size: 20px;
 }
