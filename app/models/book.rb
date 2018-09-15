@@ -10,12 +10,14 @@ class Book
     @authors = book_info[:volumeInfo][:authors]
     @date = book_info[:volumeInfo][:publishedDate]
     @description = book_info[:volumeInfo][:description]
+    @snippet = book_info[:searchInfo][:textSnippet]
     @link = book_info[:volumeInfo][:infoLink]
     @image = book_info[:volumeInfo][:imageLinks][:thumbnail] if book_info[:volumeInfo][:imageLinks]
   end
 
   def snippet
-    @description[0..285] + '...'
+    return @snippet.gsub("<b>", "").gsub("</b>", "").gsub("<br>", "").gsub("<p>", "") if @snippet
+    @description[0..285] + '...' if @description
   end
 
 
