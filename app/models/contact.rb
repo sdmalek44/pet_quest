@@ -19,6 +19,10 @@ class Contact
     "#{@city}, #{@state} #{@zip}"
   end
 
+  def geo_location_info
+    "#{@city}, #{@state}, #{@zip}"
+  end
+
   def full_address
     "#{@street} #{@city}, #{@state} #{@zip}"
   end

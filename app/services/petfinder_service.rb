@@ -2,25 +2,37 @@ class PetfinderService
 
   def initialize(param_info)
     @param_info = param_info.to_h
+    @location = @param_info.delete(:location) || 80209
+    @name = @param_info.delete(:name)
   end
 
-  def build_query
-    @param_info.inject("") do |collector, (key, value)|
+  def search_query
+    search_params.inject("") do |collector, (key, value)|
+      collector += "#{key}=#{value}&" unless value.empty?
+      collector
+    end.chop!
+  end
+
+  def animal_query
+    animal_params.inject("") do |collector, (key, value)|
       collector += "#{key}=#{value}&" unless value.empty?
       collector
     end.chop!
   end
 
   def user_location
-    unless @param_info.empty?
+    unless @param_info[:latitude].nil? || @param_info[:latitude].empty?
       Geocoder.search([@param_info[:latitude], @param_info[:longitude]]).first.data['address']['postcode']
     else
-      80209
+      @location
     end
   end
 
   def animals(animal)
-    @animals ||= get_json("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&location=#{user_location}&#{build_query}&format=json&output=full")[:petfinder][:pets][:pet]
+    @animals ||= get_json("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&location=#{user_location}&#{search_query}&format=json&output=full")[:petfinder][:pets][:pet]
+    return [] if @animals.nil?
+    return @animals if @animals.class == Array
+    return [@animals] if @animals.class == Hash
   end
 
   def breeds(animal)
@@ -28,7 +40,11 @@ class PetfinderService
   end
 
   def animal
-    @animal ||= get_json("/pet.get?key=#{ENV['PET_FINDER_TOKEN']}&#{build_query}&format=json")[:petfinder][:pet]
+    @animal ||= get_json("/pet.get?key=#{ENV['PET_FINDER_TOKEN']}&#{animal_query}&format=json")[:petfinder][:pet]
+  end
+
+  def animal_hard_way(type)
+    @animal ||= animals(type).select {|animal| animal[:name][:$t] == @name }.first
   end
 
   def shelter(shelter_id)
@@ -36,6 +52,14 @@ class PetfinderService
   end
 
   private
+
+  def search_params
+    @sp ||= @param_info.select {|k,v| ["size", "breed", "age", "sex"].include?(k) }
+  end
+
+  def animal_params
+    @sp ||= @param_info.select {|k,v| ["id"].include?(k) }
+  end
 
   def conn
     @conn ||= Faraday.new(url: "http://api.petfinder.com") { |faraday| faraday.adapter Faraday.default_adapter }

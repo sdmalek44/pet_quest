@@ -26,6 +26,11 @@ class Cat
     @shelter_id = info[:shelterId][:$t]
   end
 
+  def short_name
+    return @name if @name.length < 17
+    "#{@name[0..16]}.."
+  end
+
   def get_breeds(breed_info)
     if breed_info.class == Hash
       [breed_info[:$t]]
