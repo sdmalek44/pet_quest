@@ -32,9 +32,14 @@ class FavoriteCreator < BasePresenter
   end
 
   def build_redirect
-    "/search/#{@pet_type}s?latitude=#{@param_info[:latitude]}
-&longitude=#{@param_info[:longitude]}&breed=#{@param_info[:breed]}
-&age=#{@param_info[:age]}&size=#{@param_info[:size]}&sex=#{@param_info[:sex]}"
+    redirect_params.inject("/search/#{@pet_type}s?") do |collector, (k, v)|
+      collector += "#{k}=#{v}&" unless v.empty?
+      collector
+    end.chop!
+  end
+
+  def redirect_params
+    @ap ||= @param_info.select {|k,v| ["latitude", "longitude", "breed", "age", "size", "sex"].include?(k) }
   end
 
 end
