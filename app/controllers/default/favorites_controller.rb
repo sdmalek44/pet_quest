@@ -3,6 +3,7 @@ class Default::FavoritesController < ApplicationController
   def create
     fc = FavoriteCreator.new(current_user, favorite_params)
     fc.add_favorite
+    flash[:notice] = "Successfully added #{fc.pet.name} to Favorites"
     redirect_to fc.build_redirect
   end
 

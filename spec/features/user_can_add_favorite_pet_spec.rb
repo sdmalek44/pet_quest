@@ -14,6 +14,8 @@ describe 'registered user' do
         end
 
         expect(current_path).to eq('/search/dogs')
+
+        click_on 'My Favorites'
       end
     end
   end
