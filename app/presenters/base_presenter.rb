@@ -13,7 +13,5 @@ class BasePresenter
     "Welcome, #{user.first_name}" unless user.first_name.nil?
   end
 
-  private
-
   attr_reader :user
 end

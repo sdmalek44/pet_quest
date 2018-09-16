@@ -58,7 +58,7 @@ class PetfinderService
   end
 
   def animal_params
-    @sp ||= @param_info.select {|k,v| ["id"].include?(k) }
+    @ap ||= @param_info.select {|k,v| ["id"].include?(k) }
   end
 
   def conn

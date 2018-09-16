@@ -1,0 +1,26 @@
+<main id="pet-search">
+  <section id="search-area">
+    <% @presenter.favorites.each do |favorite| %>
+      <div class="pet-<%= favorite.pet_id %>">
+        <a class="card-link" href="/search/
+<%= favorite.pet_type %>s/<%= favorite.pet_id %>?name=<%= favorite.name %>&location=
+<%= favorite.zip %>&size=<%= favorite.size.first %>&breed=<%= favorite.breeds.first %>
+&age=<%= favorite.age.first %>&sex=<%= favorite.sex.first %>">
+            <article class="pet-box">
+                <img class="thumbnail-pic" src="<%= favorite.photo %>" alt="">
+              <article class="pet-thumb-info">
+                <div class="pet-name"><%= favorite.name %></div>
+                <div>
+                  <% favorite.breed_list.each do |breed| %>
+                    <div class="attribute  small"><%= breed %></div>
+                  <% end %>
+                </div>
+                <div class="attribute"><%= favorite.age %> <%= favorite.sex %></div>
+                <div class="attribute"><%= favorite.location %></div>
+            </article>
+          </article>
+        </a>
+      </div>
+    <% end %>
+  </section>
+</main>
