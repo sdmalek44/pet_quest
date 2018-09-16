@@ -1,14 +1,14 @@
 <nav id="nav">
     <div class="inner-nav">
       <div class="thinga logo"><a class="logo" href="<%= root_path %>"><img class="logo" src="/assets/pq_logo_final.png" alt=""></a></div>
-      <div><%= flash.notice %></div>
-
       <div class="right-nav">
 
         <div class="welcome-message">
           <%= @presenter.current_message %>
         </div>
+        <a class="my-favorites sign-in" href="/favorites/<%= @presenter.user.id %>">My Favorites</a>
         <a class="sign-in" href="<%= logout_path(last_path: request.env['REQUEST_PATH']) %>">Sign Out</a>
+      </div>
       </div>
     </div>
 </nav>

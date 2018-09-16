@@ -62,7 +62,7 @@
         size: params[:size], breed: params[:breed],
         age: params[:age], sex: params[:sex],
         latitude: params[:latitude],
-        longitude: params[:longitude], type: 'dog', ) if @presenter.user.logged_in? %>
+        longitude: params[:longitude], type: 'dog', ), class: 'favorites-button' if @presenter.user.logged_in? %>
       </div>
     <% end %>
     </section>

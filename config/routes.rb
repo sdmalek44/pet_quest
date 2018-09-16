@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   namespace :default do
     resources :favorites, only: [:create]
   end
+  get '/favorites/:id', to: 'default/favorites#show', as: 'favorites'
 end

@@ -34,6 +34,12 @@ body {
   justify-content: center;
 }
 
+.flash {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
 #the-business {
   background-image: url('https://oneadamtwelv.files.wordpress.com/2012/04/p5102156.jpg');
   background-size: cover;

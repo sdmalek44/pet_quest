@@ -20,7 +20,7 @@ class FavoriteCreator < BasePresenter
     user.favorites.find_by(pet_id: pet.id) ||
     user.favorites.create(pet_id: pet.id, name: pet.name, breeds: breeds_string,
                           age: pet.age, sex: pet.sex, location: pet.contact.city_state_zip,
-                          status: pet.status)
+                          status: pet.status, pet_type: @pet_type, size: pet.size, photo: pet.photos.thumbnail_photo)
   end
 
   def breeds_string

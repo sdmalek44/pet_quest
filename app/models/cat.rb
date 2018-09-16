@@ -9,7 +9,8 @@ class Cat
               :description,
               :last_update,
               :breeds,
-              :shelter_id
+              :shelter_id,
+              :status
 
   def initialize(info)
     @status = info[:status][:$t] if info[:status][:$t]

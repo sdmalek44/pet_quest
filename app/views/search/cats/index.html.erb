@@ -38,26 +38,33 @@
       <section id="search-area">
 
       <% @presenter.cats.each do |cat| %>
-        <a class="card-link" href="<%= search_cat_path(
-                                    id: cat.id, name: cat.name,
-                                    location: cat.contact.zip,
-                                    size: cat.size.first, breed: cat.breeds.first,
-                                    age: cat.age.first, sex: cat.sex.first) %>">
-            <article class="pet-box">
-                <img class="thumbnail-pic" src="<%= cat.photos.thumbnail_photo %>" alt="">
-              <article class="pet-thumb-info">
-                <div class="pet-name"><%= cat.short_name %></div>
-                <div>
+        <div class="pet-<%= cat.id %>">
+          <a class="card-link" href="<%= search_cat_path(
+                                      id: cat.id, name: cat.name,
+                                      location: cat.contact.zip,
+                                      size: cat.size.first, breed: cat.breeds.first,
+                                      age: cat.age.first, sex: cat.sex.first) %>">
+              <article class="pet-box">
+                  <img class="thumbnail-pic" src="<%= cat.photos.thumbnail_photo %>" alt="">
+                <article class="pet-thumb-info">
+                  <div class="pet-name"><%= cat.short_name %></div>
+                  <div>
 
-                  <% cat.breeds.each do |breed| %>
-                    <div class="attribute  small"><%= breed %></div>
-                  <% end %>
-                </div>
-                <div class="attribute"><%= cat.age %> <%= cat.sex %></div>
-                <div class="attribute"><%= cat.contact.city_state_zip %></div>
+                    <% cat.breeds.each do |breed| %>
+                      <div class="attribute  small"><%= breed %></div>
+                    <% end %>
+                  </div>
+                  <div class="attribute"><%= cat.age %> <%= cat.sex %></div>
+                  <div class="attribute"><%= cat.contact.city_state_zip %></div>
+              </article>
             </article>
-          </article>
-        </a>
+          </a>
+          <%= button_to "Add to Favorites", default_favorites_path(id: cat.id, name: cat.name,
+          size: params[:size], breed: params[:breed],
+          age: params[:age], sex: params[:sex],
+          latitude: params[:latitude],
+          longitude: params[:longitude], type: 'cat', ), class: 'favorites-button' if @presenter.user.logged_in? %>
+        </div>
       <% end %>
       </section>
 

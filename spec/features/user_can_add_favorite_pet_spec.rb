@@ -14,8 +14,12 @@ describe 'registered user' do
         end
 
         expect(current_path).to eq('/search/dogs')
+        expect(page).to have_content('Successfully added', 'to Favorites')
 
         click_on 'My Favorites'
+
+        expect(current_path).to eq("/favorites/#{user.id}")
+        expect(page).to have_css(".pet-42473914")
       end
     end
   end

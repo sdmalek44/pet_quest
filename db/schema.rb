@@ -19,10 +19,13 @@ ActiveRecord::Schema.define(version: 20180915233234) do
     t.string "pet_id"
     t.text "breeds"
     t.string "name"
+    t.string "size"
     t.string "age"
     t.string "sex"
     t.string "location"
     t.string "status"
+    t.string "pet_type"
+    t.string "photo"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
