@@ -7,6 +7,7 @@ class NullUser
               :token
 
   def logged_in?
-    nil
+    false
   end
+
 end

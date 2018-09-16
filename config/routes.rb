@@ -9,4 +9,8 @@ Rails.application.routes.draw do
     resources :dogs, only: [:index, :show]
     resources :cats, only: [:index, :show]
   end
+
+  namespace :default do
+    resources :favorites, only: [:create]
+  end
 end

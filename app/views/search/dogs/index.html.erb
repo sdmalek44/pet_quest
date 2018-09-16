@@ -38,25 +38,32 @@
     <section id="search-area">
 
     <% @presenter.dogs.each do |dog| %>
-      <a class="card-link" href="<%= search_dog_path(
-                                  id: dog.id, name: dog.name,
-                                  location: dog.contact.zip,
-                                  size: dog.size.first, breed: dog.breeds.first,
-                                  age: dog.age.first, sex: dog.sex.first) %>">
-          <article class="pet-box">
-              <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
-            <article class="pet-thumb-info">
-              <div class="pet-name"><%= dog.short_name %></div>
-              <div>
-                <% dog.breeds.each do |breed| %>
-                  <div class="attribute  small"><%= breed %></div>
-                <% end %>
-              </div>
-              <div class="attribute"><%= dog.age %> <%= dog.sex %></div>
-              <div class="attribute"><%= dog.contact.city_state_zip %></div>
+      <div class="pet-<%= dog.id %>">
+        <a class="card-link" href="<%= search_dog_path(
+                                    id: dog.id, name: dog.name,
+                                    location: dog.contact.zip,
+                                    size: dog.size.first, breed: dog.breeds.first,
+                                    age: dog.age.first, sex: dog.sex.first) %>">
+            <article class="pet-box">
+                <img class="thumbnail-pic" src="<%= dog.photos.thumbnail_photo %>" alt="">
+              <article class="pet-thumb-info">
+                <div class="pet-name"><%= dog.short_name %></div>
+                <div>
+                  <% dog.breeds.each do |breed| %>
+                    <div class="attribute  small"><%= breed %></div>
+                  <% end %>
+                </div>
+                <div class="attribute"><%= dog.age %> <%= dog.sex %></div>
+                <div class="attribute"><%= dog.contact.city_state_zip %></div>
+            </article>
           </article>
-        </article>
-      </a>
+        </a>
+        <%= button_to "Add to Favorites", default_favorites_path(id: dog.id, name: dog.name,
+        size: params[:size], breed: params[:breed],
+        age: params[:age], sex: params[:sex],
+        latitude: params[:latitude],
+        longitude: params[:longitude], type: 'dog', ) if @presenter.user.logged_in? %>
+      </div>
     <% end %>
     </section>
   </section>
@@ -75,6 +82,6 @@
     x.value = position.coords.latitude
     y.value = position.coords.longitude
   }
-  
+
   window.onload = getLocation;
 </script>

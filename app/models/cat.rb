@@ -12,6 +12,7 @@ class Cat
               :shelter_id
 
   def initialize(info)
+    @status = info[:status][:$t] if info[:status][:$t]
     @contact = Contact.new(info[:contact]) if info[:contact]
     @age = info[:age][:$t]
     @name = info[:name][:$t]
