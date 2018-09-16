@@ -4,12 +4,12 @@
       <div class="pet-<%= favorite.pet_id %>">
         <a class="card-link" href="/search/
 <%= favorite.pet_type %>s/<%= favorite.pet_id %>?name=<%= favorite.name %>&location=
-<%= favorite.zip %>&size=<%= favorite.size.first %>&breed=<%= favorite.breeds.first %>
-&age=<%= favorite.age.first %>&sex=<%= favorite.sex.first %>">
+<%= favorite.zip %>&size=<%= favorite.size.first %>&breed=<%= favorite.breed_list.first %>
+&age=<%= favorite.age %>&sex=<%= favorite.sex.first %>">
             <article class="pet-box">
                 <img class="thumbnail-pic" src="<%= favorite.photo %>" alt="">
               <article class="pet-thumb-info">
-                <div class="pet-name"><%= favorite.name %></div>
+                <div class="pet-name"><%= favorite.display_name %></div>
                 <div>
                   <% favorite.breed_list.each do |breed| %>
                     <div class="attribute  small"><%= breed %></div>
@@ -20,6 +20,7 @@
             </article>
           </article>
         </a>
+        <%= button_to "Remove Favorite", delete_favorite_path(fav_id: favorite.id), method: 'delete', class: 'favorites-button remove-fav' %>
       </div>
     <% end %>
   </section>

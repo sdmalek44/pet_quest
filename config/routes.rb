@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create]
   end
   get '/favorites/:id', to: 'default/favorites#show', as: 'favorites'
+  delete '/favorites/:fav_id', to: 'default/favorites#destroy', as: 'delete_favorite'
 end
