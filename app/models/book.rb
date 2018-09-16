@@ -10,7 +10,7 @@ class Book
     @authors = book_info[:volumeInfo][:authors]
     @date = book_info[:volumeInfo][:publishedDate]
     @description = book_info[:volumeInfo][:description]
-    @snippet = book_info[:searchInfo][:textSnippet]
+    @snippet = book_info[:searchInfo][:textSnippet] if book_info[:searchInfo]
     @link = book_info[:volumeInfo][:infoLink]
     @image = book_info[:volumeInfo][:imageLinks][:thumbnail] if book_info[:volumeInfo][:imageLinks]
   end
