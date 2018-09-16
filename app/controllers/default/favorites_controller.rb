@@ -1,5 +1,5 @@
 class Default::FavoritesController < Default::BaseController
-  before_action :verify_user, only: [:create]
+  before_action :verify_user, only: [:create, :destroy]
   before_action :correct_user, only: [:show]
 
   def create
@@ -11,6 +11,13 @@ class Default::FavoritesController < Default::BaseController
 
   def show
     @presenter = FavoritesPresenter.new(current_user)
+  end
+
+  def destroy
+    favorite = current_user.favorites.find(params[:fav_id])
+    flash[:notice] = "Successfully Removed #{favorite.name}"
+    favorite.destroy
+    redirect_to "/favorites/#{current_user.id}"
   end
 
   private
