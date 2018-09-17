@@ -16,5 +16,19 @@
     <%= render "shared/#{@presenter.current_navbar}" %>
     <div class="flash"><%= flash.notice %></div>
     <%= yield %>
+    <script type="text/javascript">
+      var lat = document.getElementById("lat");
+      var lon = document.getElementById("lon");
+      function userLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(userPosition);
+        }
+      }
+      function userPosition(position) {
+        lat.value = position.coords.latitude
+        lon.value = position.coords.longitude
+      }
+      window.onload = userLocation;
+    </script>
   </body>
 </html>
