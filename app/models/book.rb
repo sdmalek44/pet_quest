@@ -17,9 +17,8 @@ class Book
 
   def snippet
     return @snippet.gsub("<b>", "").gsub("</b>", "").gsub("<br>", "").gsub("<p>", "") if @snippet
-    @description[0..285] + '...' if @description
+    @description[0..285] if @description
   end
-
 
   def image(size = 1)
     return @image.gsub("zoom=1", "zoom=#{size}") if @image

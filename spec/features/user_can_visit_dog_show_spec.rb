@@ -38,4 +38,15 @@ describe 'user visits /search/dogs' do
       expect(page).to have_content('Covers training tools, handling techniques, obedience exercises, socialization, and aggression problems.')
     end
   end
+  it 'can find the individual dog even if the search by dog id fails' do
+    VCR.use_cassette('bad-dog-show') do
+      visit '/search/dogs/42334243?age=Senior&breed=American+Hairless+Terrier&location=13814&name=Roscoe+B.+DeMille&sex=M&size=S'
+
+      expect(page).to have_content('Roscoe B. DeMille')
+      expect(page).to have_content('American Hairless Terrier')
+      expect(page).to have_content('Senior - Male - Small sized')
+      expect(page).to have_content('North Norwich, NY 13814')
+      expect(page).to have_content('baldisbeautifuldogrescue@gmail.com')
+    end
+  end
 end
