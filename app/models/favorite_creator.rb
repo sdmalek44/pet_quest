@@ -3,7 +3,7 @@ class FavoriteCreator < BasePresenter
   def initialize(user, param_info = {})
     @pet_service = PetfinderService.new(param_info)
     @param_info = param_info.to_h
-    @pet_type = @param_info[:type]
+    @pet_type = @param_info['type']
     super(user)
   end
 
@@ -25,10 +25,6 @@ class FavoriteCreator < BasePresenter
 
   def breeds_string
     pet.breeds.join(", ")
-  end
-
-  def breed
-    pet.breeds.first.gsub(" ", "+")
   end
 
   def build_redirect

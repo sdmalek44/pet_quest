@@ -2,8 +2,8 @@ class PetfinderService
 
   def initialize(param_info)
     @param_info = param_info.to_h
-    @location = @param_info.delete(:location) || 80209
-    @name = @param_info.delete(:name)
+    @location = @param_info.delete('location') || 80209
+    @name = @param_info.delete('name')
   end
 
   def search_query
@@ -21,18 +21,18 @@ class PetfinderService
   end
 
   def user_location
-    unless @param_info[:latitude].nil? || @param_info[:latitude].empty?
-      Geocoder.search([@param_info[:latitude], @param_info[:longitude]]).first.data['address']['postcode']
+    unless @param_info['latitude'].nil? || @param_info['latitude'].empty?
+      Geocoder.search([@param_info['latitude'], @param_info['longitude']]).first.data['address']['postcode']
     else
-      @location
+      @location.to_s
     end
   end
 
   def animals(animal)
     @animals ||= get_json("/pet.find?key=#{ENV['PET_FINDER_TOKEN']}&animal=#{animal}&location=#{user_location}&#{search_query}&format=json&output=full")[:petfinder][:pets][:pet]
     return [] if @animals.nil?
-    return @animals if @animals.class == Array
     return [@animals] if @animals.class == Hash
+    return @animals if @animals.class == Array
   end
 
   def breeds(animal)

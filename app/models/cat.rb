@@ -22,10 +22,10 @@ class Cat
     @photos = PhotoAlbum.new(info[:media]) unless info[:media].empty?
     @photos = NullPhotoAlbum.new if info[:media].empty?
     @id = info[:id][:$t]
-    @breeds = get_breeds(info[:breeds][:breed])
+    @breeds = get_breeds(info[:breeds][:breed]) if info[:breeds][:breed]
     @description = info[:description][:$t]
-    @last_update = DateTime.parse(info[:lastUpdate][:$t]) if info[:lastUpdate][:$t]
-    @shelter_id = info[:shelterId][:$t]
+    @last_update = DateTime.parse(info[:lastUpdate][:$t]) if info[:lastUpdate]
+    @shelter_id = info[:shelterId][:$t] if info[:shelterId]
   end
 
   def short_name
