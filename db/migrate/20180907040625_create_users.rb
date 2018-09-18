@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :provider
       t.string :email
       t.string :token
+      t.string :zip
 
       t.timestamps
     end

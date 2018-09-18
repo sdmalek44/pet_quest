@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180915233234) do
     t.string "provider"
     t.string "email"
     t.string "token"
+    t.string "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

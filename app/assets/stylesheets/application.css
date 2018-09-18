@@ -78,8 +78,32 @@ body {
   background-color: white;
 }
 
+#nav .inner-nav input:hover {
+  color: #006600;
+  background-color: white;
+}
+
 #nav .inner-nav .thinga a:hover {
   background-color: #006600;
+}
+
+.sign-form {
+  height: 100%;
+}
+
+#sign-button {
+  height: 100%;
+  width: 130px;
+  margin: 0;
+  border: none;
+  padding-right: 23px;
+  padding-left: 20px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  background-color: #006600;
+  font-family: 'Rock Salt', cursive;
+  font-size: 17px;
+  color: white;
 }
 
 .banner {

@@ -16,5 +16,19 @@
     <%= render "shared/#{@presenter.current_navbar}" %>
     <div class="flash"><%= flash.notice %></div>
     <%= yield %>
+    <% unless current_user.logged_in? || session['lat'] %>
+      <script type="text/javascript">
+        $('#sign-button').attr('disabled', '');
+        function assignPosition(pos) {
+          document.getElementById('lat').value = pos.coords.latitude;
+          document.getElementById('lon').value = pos.coords.longitude;
+          $('#sign-button').removeAttr('disabled');
+        }
+        $(function() {
+          navigator.geolocation.getCurrentPosition(assignPosition);
+        });
+
+      </script>
+    <% end %>
   </body>
 </html>
