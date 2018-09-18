@@ -2,8 +2,8 @@
   <main id="pet-search">
     <section>
       <form class="search-form" action="/search/cats" method="get">
-        <input id="latitude" type="hidden" name="latitude"></input>
-        <input id="longitude" type="hidden" name="longitude"></input>
+        <input id="latitude" type="hidden" name="latitude" value="<%= params[:latitude] %>"></input>
+        <input id="longitude" type="hidden" name="longitude" value="<%= params[:longitude] %>"></input>
         <div class="search-title">Breed</div>
         <select class="dropdown" name="breed">
           <option class="option" value="">Any</option>
