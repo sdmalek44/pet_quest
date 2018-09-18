@@ -1,7 +1,6 @@
 class Search::DogsController < ApplicationController
 
   def index
-    binding.pry
     @presenter = DogSearchPresenter.new(current_user, search_params)
   end
 

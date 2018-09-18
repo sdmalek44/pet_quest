@@ -33,7 +33,7 @@
         <option value="M">Male</option>
         <option value="F">Female</option>
       </select>
-      <input class="dropdown submit" type="submit" value="Search">
+      <input id="search-button" class="dropdown submit" type="submit" value="Search">
     </form>
     <section id="search-area">
 
@@ -68,20 +68,19 @@
     </section>
   </section>
 </main>
-<script type="text/javascript">
-  var x = document.getElementById("latitude");
-  var y = document.getElementById("longitude");
-  function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-  function showPosition(position) {
-    x.value = position.coords.latitude
-    y.value = position.coords.longitude
-  }
+<% if params['longitude'].nil? || params['longitude'].empty? %>
+  <script type="text/javascript">
+    $('#search-button').attr('disabled', '');
 
-  window.onload = getLocation;
-</script>
+    function showPosition(pos) {
+      document.getElementById('latitude').value = pos.coords.latitude;
+      document.getElementById('longitude').value = pos.coords.longitude;
+      $('#search-button').removeAttr('disabled');
+    }
+
+    $(function() {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    });
+
+  </script>
+<% end %>
