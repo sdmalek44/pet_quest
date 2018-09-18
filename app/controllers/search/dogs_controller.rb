@@ -1,8 +1,6 @@
 class Search::DogsController < ApplicationController
 
   def index
-    params[:latitude] = session[:lat] if session[:lat]
-    params[:longitude] = session[:lon] if session[:lon]
     @presenter = DogSearchPresenter.new(current_user, search_params)
   end
 
