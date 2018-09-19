@@ -46,4 +46,36 @@ describe PetfinderService, type: :model do
       expect(animal[:name][:$t]).to eq('REESE')
     end
   end
+  it 'can find shelter animals' do
+    VCR.use_cassette('shelter-animals') do
+      shelter_animals = @service.shelter_animals('CO178')
+      animal = shelter_animals.first
+
+      expect(animal).to have_key(:status)
+      expect(animal).to have_key(:contact)
+      expect(animal).to have_key(:age)
+      expect(animal).to have_key(:name)
+      expect(animal).to have_key(:sex)
+      expect(animal).to have_key(:size)
+      expect(animal).to have_key(:media)
+      expect(animal).to have_key(:id)
+      expect(animal).to have_key(:shelterId)
+      expect(animal).to have_key(:breeds)
+      expect(animal).to have_key(:description)
+      expect(animal).to have_key(:lastUpdate)
+    end
+  end
+  it 'can find shelters by zip' do
+    VCR.use_cassette('shelters-zip') do
+      shelters = @service.shelters('80209')
+      shelter = shelters.first
+
+      expect(shelter).to have_key(:id)
+      expect(shelter).to have_key(:name)
+      expect(shelter).to have_key(:phone)
+      expect(shelter).to have_key(:email)
+      expect(shelter).to have_key(:latitude)
+      expect(shelter).to have_key(:longitude)
+    end
+  end
 end

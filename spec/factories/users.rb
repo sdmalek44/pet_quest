@@ -5,6 +5,7 @@ FactoryBot.define do
     first_name 'Stephen'
     last_name 'Malek'
     email 'ste@ste.ste'
+    zip '80202'
     token ENV['GOOGLE_TOKEN']
   end
 end
