@@ -44,6 +44,7 @@ body {
   background-image: url('https://oneadamtwelv.files.wordpress.com/2012/04/p5102156.jpg');
   background-size: cover;
   background-attachment: fixed;
+  height: 1000px;
 }
 
 .inner-nav {
@@ -130,6 +131,11 @@ body {
 
 .bottom-banner {
   background-color: rgba(57, 79, 57, 0.8);
+}
+
+.below-banner {
+  background-color: rgba(57, 79, 57, 0.8);
+  height: 140px;
 }
 
 div.slogan-text {

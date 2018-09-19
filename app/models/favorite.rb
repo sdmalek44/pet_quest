@@ -12,6 +12,6 @@ class Favorite < ApplicationRecord
   end
 
   def zip
-    location[-5..-1]
+    location[-5..-1] if location
   end
 end

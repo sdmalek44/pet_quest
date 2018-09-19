@@ -59,8 +59,8 @@
           </article>
         </a>
         <%= button_to "Add to Favorites", default_favorites_path(id: dog.id, name: dog.name,
-        size: params[:size], breed: params[:breed],
-        age: params[:age], sex: params[:sex],
+        size: dog.size.first, breed: (params[:breed] || dog.breeds.first),
+        age: dog.age, sex: dog.sex.first,
         latitude: params[:latitude],
         longitude: params[:longitude], type: 'dog', ), class: 'favorites-button' if @presenter.user.logged_in? %>
       </div>

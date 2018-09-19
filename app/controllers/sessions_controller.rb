@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     user = User.find_by_provider_and_uid(auth[:provider], auth[:uid]) || User.create_with_omniauth(auth)
-    if user.zip.nil?
+    if user.zip.nil? && session['lat']
       user.update(zip: Geocoder.search([session['lat'], session['lon']]).first.data['address']['postcode'])
     end
     user.update(token: auth["credentials"]["token"])

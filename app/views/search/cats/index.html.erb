@@ -60,8 +60,8 @@
             </article>
           </a>
           <%= button_to "Add to Favorites", default_favorites_path(id: cat.id, name: cat.name,
-          size: params[:size], breed: params[:breed],
-          age: params[:age], sex: params[:sex],
+          size: cat.size.first, breed: (params[:breed] || cat.breeds.first),
+          age: cat.age, sex: cat.sex.first,
           latitude: params[:latitude],
           longitude: params[:longitude], type: 'cat'), class: 'favorites-button' if @presenter.user.logged_in? %>
         </div>
