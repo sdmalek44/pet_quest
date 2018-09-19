@@ -10,7 +10,7 @@ class JobCreator
   end
 
   def shelter
-    @shelter ||= Shelter.new(service.shelter(service.shelters(@user.zip).second[:id][:$t]))
+    @shelter ||= Shelter.new(service.shelter(service.shelters(@user.zip).first[:id][:$t]))
   end
 
   def pets_info
@@ -19,7 +19,7 @@ class JobCreator
 
   def new_pets
     make_pets(pets_info).select do |pet|
-      pet.last_update < DateTime.now && pet.last_update > 7.days.ago
+      pet.last_update < DateTime.now && pet.last_update > 1.month.ago
     end
   end
 
