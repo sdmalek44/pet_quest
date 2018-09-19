@@ -1,24 +1,39 @@
-# README
+# Pet Quest
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PetQuest is a pet adoption app that allows you to search pets in your area by breed, size, age and gender. On each search page you can click to view a specific animal, their information, a map of the location of the shelter they are at, and a list of helpful books about training that particular breed of animal. I used the petfinder, google books, and mapbox apis. Google Oauth was used for authentication. Redis and sidekiq were used for a job that sends an email of new pets to subscribers once a week.  
 
-Things you may want to cover:
+Ruby Version: 2.4.3  
+Rails Version: 5.1.6  
+  
+  
+## Setup  
+  
+```
+$ bundle install
+$ rake db:{drop,create,migrate}  
+$ rails s (to start server) 
+(go to localhost:3000 in browser)  
+```
 
-* Ruby version
+## Run Test Suite  
 
-* System dependencies
+``` 
+$ rspec 
 
-* Configuration
+or 
 
-* Database creation
+$ bundle exec rspec 
 
-* Database initialization
+``` 
 
-* How to run the test suite
+## Start Redis Server  
+ ```
+ $ redis-server  
+ 
+ ``` 
+ 
+ ## Run Sidekiq 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+``` 
+$ bundle exec sidekiq  
+```  
