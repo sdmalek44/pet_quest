@@ -22,11 +22,11 @@
   margin-bottom: 0px;
   background-color: #DBDBDB;
   border: 1px solid #c4c4c4;
-
 }
 
 .favorites-button {
-  background-color: green;
+  background-color: #ffffff;
+  color: #006600;
   margin: 0px;
   border: none;
   display: flex;
@@ -34,13 +34,13 @@
   margin-left: 10px;
   height: 50px;
   font-size: 20px;
-  color: white;
   text-align: center;
   margin-top: 1;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   display: flex;
   justify-content: center;
+  border: 1px solid #d3d3d3;
 }
 
 .button_to {
@@ -56,6 +56,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.classWithShadow{
+   background-color: #006600;
+}
+
+.fav-button {
+  background-color: #006600;
+  color: white;
 }
 
 .card-link {

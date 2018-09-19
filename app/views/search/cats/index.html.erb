@@ -38,7 +38,7 @@
       <section id="search-area">
 
       <% @presenter.cats.each do |cat| %>
-        <div class="pet-<%= cat.id %>">
+        <div class="pet-<%= cat.id %> card">
           <a class="card-link" href="<%= search_cat_path(
                                       id: cat.id, name: cat.name,
                                       location: cat.contact.zip,
@@ -70,6 +70,16 @@
 
     </section>
   </main>
+  <script type="text/javascript">
+    $("article.pet-box").hover(function()
+      {
+       $(this).toggleClass('classWithShadow');
+      });
+    $("input.favorites-button").hover(function()
+      {
+        $(this).toggleClass('fav-button');
+      });
+  </script>
   <% if params['longitude'].nil? || params['longitude'].empty? %>
     <script type="text/javascript">
       $('#search-button').attr('disabled', '');
