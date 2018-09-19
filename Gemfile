@@ -30,6 +30,7 @@ gem 'figaro'
 gem 'pry'
 gem 'geocoder'
 gem 'sidekiq'
+gem 'sendgrid-ruby'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
