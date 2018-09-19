@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe BookService, type: :model do
-
-  it 'can find books about training a certain breed' do
+  before(:each) do
     @service = BookService.new
+  end
+  it 'can find books about training a certain breed' do
     VCR.use_cassette('book-service') do
       books = @service.training_books('dog', 'boxer')
       book = books.first
@@ -18,5 +19,9 @@ describe BookService, type: :model do
       expect(book[:volumeInfo]).to have_key(:imageLinks)
       expect(book[:searchInfo]).to have_key(:textSnippet)
     end
+  end
+
+  it 'can make a query string' do
+    expect(@service.querify('hey you')).to eq('hey+you')
   end
 end
