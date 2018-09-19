@@ -1,6 +1,6 @@
 class PetfinderService
 
-  def initialize(param_info)
+  def initialize(param_info = {})
     @param_info = param_info.to_h
     @location = @param_info.delete('location') || 80209
     @name = @param_info.delete('name')
@@ -49,6 +49,14 @@ class PetfinderService
 
   def shelter(shelter_id)
     @shelter ||= get_json("/shelter.get?key=#{ENV['PET_FINDER_TOKEN']}&id=#{shelter_id}&format=json")[:petfinder][:shelter]
+  end
+
+  def shelters(zip_code)
+    @shelters ||= get_json("/shelter.find?key=#{ENV['PET_FINDER_TOKEN']}&location=#{zip_code}&count=3&format=json")[:petfinder][:shelters][:shelter]
+  end
+
+  def shelter_animals(shelter_id)
+    @shelter_animals ||= get_json("/shelter.getPets?key=#{ENV['PET_FINDER_TOKEN']}&id=#{shelter_id}&count=1000&format=json")[:petfinder][:pets][:pet]
   end
 
   private

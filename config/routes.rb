@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   end
   get '/favorites/:id', to: 'default/favorites#show', as: 'favorites'
   delete '/favorites/:fav_id', to: 'default/favorites#destroy', as: 'delete_favorite'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
