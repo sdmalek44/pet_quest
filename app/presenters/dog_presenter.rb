@@ -15,12 +15,13 @@ class DogPresenter < BasePresenter
   end
 
   def contact_geocoder
-    @geocoder ||= Geocoder.search(dog.contact.geo_location_info).first.data
+    geo_info = Geocoder.search(dog.contact.geo_location_info).first
+    @geocoder ||= geo_info.data if geo_info
   end
 
   def shelter_coordinates
     return [shelter.latitude, shelter.longitude] if shelter
-    [contact_geocoder['lat'], contact_geocoder['lon']]
+    [contact_geocoder['lat'], contact_geocoder['lon']] if contact_geocoder
   end
 
   def dog

@@ -57,6 +57,7 @@
    </aside>
  </section>
 </main>
+<% if @presenter.shelter_coordinates %>
   <script>
     var lat = <%= @presenter.shelter_coordinates[0] %>
     var long = <%= @presenter.shelter_coordinates[1] %>
@@ -72,3 +73,4 @@
         .setLngLat([long, lat])
         .addTo(map);
   </script>
+  <% end %>
