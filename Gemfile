@@ -29,6 +29,8 @@ gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'pry'
 gem 'geocoder'
+gem 'sidekiq'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

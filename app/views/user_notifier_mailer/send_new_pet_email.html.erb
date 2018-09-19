@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>We have new animals near you!</h1>
+    <h3><%= @shelter.name %> has gotten <%= @pets.count %> new animals this week!</h3>
+    <h5> <%= @shelter.phone %></h5>
+    <h5> <%= @shelter.email %></h5>
+
+    <% @pets.each do |pet| %>
+            <article class="pet-box">
+              <img class="thumbnail-pic" src="<%= pet.photos.thumbnail_photo %>" alt="">
+              <article class="pet-thumb-info">
+                <div class="pet-name"><%= pet.short_name %></div>
+                <div>
+
+                  <% pet.breeds.each do |breed| %>
+                    <div class="attribute  small"><%= breed %></div>
+                  <% end %>
+                </div>
+                <div class="attribute"><%= pet.age %> <%= pet.sex %></div>
+                <div class="attribute"><%= pet.contact.city_state_zip %></div>
+              </article>
+            </article>
+            <br>
+        <% end %>
+        <a href="https://pet-quest.herokuapp.com/">Visit Pet Quest and See!</a>
+  </body>
+</html>
