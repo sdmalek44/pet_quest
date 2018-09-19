@@ -7,8 +7,8 @@ RSpec.feature "user logs in" do
 
     visit root_path
 
-    expect(page).to have_link("Sign In")
-    click_link "Sign In"
+    expect(page).to have_button("Sign In")
+    click_button "Sign In"
 
     expect(page).to have_content("Welcome, Stephen")
     expect(page).to have_link("Sign Out")
@@ -22,13 +22,12 @@ RSpec.feature "user logs in" do
     stub_omniauth
 
     VCR.use_cassette('dog-login') do
-      allow_any_instance_of(ActionDispatch::Request::Session).to receive(:[]).and_return('/search/dogs')
 
       visit '/search/dogs'
 
-      click_link "Sign In"
+      click_button "Sign In"
 
-      expect(current_path).to eq('/search/dogs')
+      expect(current_path).to eq('/')
     end
   end
 end
