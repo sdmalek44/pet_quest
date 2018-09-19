@@ -21,6 +21,7 @@
                 </div>
                 <div class="attribute"><%= pet.age %> <%= pet.sex %></div>
                 <div class="attribute"><%= pet.contact.city_state_zip %></div>
+                <div class="attribute">Posting Updated on: <%= pet.last_update.strftime('%b %d, %Y') %></div>
               </article>
             </article>
             <br>

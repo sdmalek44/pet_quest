@@ -10,7 +10,7 @@ class JobCreator
   end
 
   def shelter
-    @shelter ||= Shelter.new(service.shelter(service.shelters(@user.zip).first[:id][:$t]))
+    @shelter ||= Shelter.new(service.shelter(service.shelters(@user.zip).second[:id][:$t]))
   end
 
   def pets_info
