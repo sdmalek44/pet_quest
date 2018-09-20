@@ -67,6 +67,11 @@
   color: white;
 }
 
+.remove-fav-button {
+  background-color: #9e0000;
+  color: white;
+}
+
 .card-link {
   text-decoration: none;
 }

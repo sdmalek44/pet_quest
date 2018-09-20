@@ -2,8 +2,8 @@
     <div class="inner-nav">
       <div class="thinga logo"><a class="logo" href="<%= root_path %>"><img class="logo" src="/assets/pq_logo_final.png" alt=""></a></div>
       <form class="sign-form" action="<%= login_path %>" method="get">
-        <input id="lat" type="hidden" name="lat" value=""></input>
-        <input id="lon" type="hidden" name="lon" value=""></input>
+        <input id="lat" type="hidden" name="lat" value="39.7497458"></input>
+        <input id="lon" type="hidden" name="lon" value="-105.00007070000001"></input>
         <input type="hidden" name="last_path" value="<%= request.env['REQUEST_PATH'] %>"></input>
         <input id="sign-button" type="submit" name="Sign In" value="Sign In">
       </form>

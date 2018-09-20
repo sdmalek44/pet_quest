@@ -1,5 +1,4 @@
 class CatSearchPresenter < BasePresenter
-  attr_reader :service
 
   def initialize(user, param_info = {})
     @service = PetfinderService.new(param_info)
@@ -13,4 +12,6 @@ class CatSearchPresenter < BasePresenter
   def breeds
     service.breeds('cat').map {|breed_info| Breed.new(breed_info[:$t])}
   end
+  
+  attr_reader :service
 end
