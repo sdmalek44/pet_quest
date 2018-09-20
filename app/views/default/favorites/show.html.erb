@@ -20,8 +20,18 @@
             </article>
           </article>
         </a>
-        <%= button_to "Remove Favorite", delete_favorite_path(fav_id: favorite.id), method: 'delete', class: 'favorites-button remove-fav' %>
+        <%= button_to "Remove Favorite", delete_favorite_path(fav_id: favorite.id), method: 'delete', class: 'favorites-button' %>
       </div>
     <% end %>
   </section>
 </main>
+<script type="text/javascript">
+  $("article.pet-box").hover(function()
+    {
+     $(this).toggleClass('classWithShadow');
+    });
+  $("input.favorites-button").hover(function()
+    {
+      $(this).toggleClass('remove-fav-button');
+    });
+</script>

@@ -68,6 +68,16 @@
     </section>
   </section>
 </main>
+<script type="text/javascript">
+  $("article.pet-box").hover(function()
+    {
+     $(this).toggleClass('classWithShadow');
+    });
+  $("input.favorites-button").hover(function()
+    {
+      $(this).toggleClass('fav-button');
+    });
+</script>
 <% if params['longitude'].nil? || params['longitude'].empty? %>
   <script type="text/javascript">
     $('#search-button').attr('disabled', '');
