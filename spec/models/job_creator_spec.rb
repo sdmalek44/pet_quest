@@ -9,7 +9,7 @@ describe JobCreator, type: :model do
 
   it 'can make new pets' do
     VCR.use_cassette('make-pets') do
-      expect(@jc.new_pets.count).to eq(2)
+      expect(@jc.new_pets.count).to eq(3)
     end
   end
 end
