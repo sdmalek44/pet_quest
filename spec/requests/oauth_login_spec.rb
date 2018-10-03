@@ -17,17 +17,4 @@ RSpec.feature "user logs in" do
 
     expect(current_path).to eq('/')
   end
-  scenario "user logs in from different page" do
-    user = create(:user)
-    stub_omniauth
-
-    VCR.use_cassette('dog-login') do
-
-      visit '/search/dogs'
-
-      click_button "Sign In"
-
-      expect(current_path).to eq('/')
-    end
-  end
 end
