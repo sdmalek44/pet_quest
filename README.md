@@ -6,7 +6,7 @@ Ruby Version: 2.4.3
 Rails Version: 5.1.6  
   
 ## Heroku  
-https://pet-quest.herokuapp.com/
+https://pet-quest.herokuapp.com/  
   
 
 ## Setup  
@@ -16,17 +16,23 @@ $ bundle install
 $ rake db:{drop,create,migrate}  
 $ rails s (to start server) 
 (go to localhost:3000 in browser)  
+```  
+
+## Testing  
+* to successfully run all tests you will need to obtain 2 keys
+  - oauth token from google https://developers.google.com/identity/protocols/OAuth2 
+  - petfinder api key at https://www.petfinder.com/developers/api-key  
+  
 ```
+(do the following to create an application.yml file)
+$ figaro install 
 
-## Run Test Suite  
+(put following in new config/application.yml file)
+GOOGLE_TOKEN: <oauth token obtained from google>  
+PET_FINDER_TOKEN: <api key obtained from petfinder>
 
-``` 
-$ rspec 
-
-or 
-
+(to run tests)
 $ bundle exec rspec 
-
 ``` 
 
 ## Start Redis Server  
