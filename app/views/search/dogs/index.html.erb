@@ -80,12 +80,9 @@
 </script>
 <% if params['longitude'].nil? || params['longitude'].empty? %>
   <script type="text/javascript">
-    $('#search-button').attr('disabled', '');
-
     function showPosition(pos) {
       document.getElementById('latitude').value = pos.coords.latitude;
       document.getElementById('longitude').value = pos.coords.longitude;
-      $('#search-button').removeAttr('disabled');
     }
 
     $(function() {

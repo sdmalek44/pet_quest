@@ -9,3 +9,14 @@
       </form>
     </div>
 </nav>
+<% unless current_user.logged_in? %>
+  <script type="text/javascript">
+    function assignPosition(pos) {
+      document.getElementById('lat').value = pos.coords.latitude;
+      document.getElementById('lon').value = pos.coords.longitude;
+    }
+    $(function() {
+      navigator.geolocation.getCurrentPosition(assignPosition);
+    });
+  </script>
+<% end %>
