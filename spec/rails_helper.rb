@@ -28,7 +28,7 @@ def stub_omniauth
            "last_name"=>"Malek"
         },
          "credentials"=>
-           {"token"=>ENV['GOOGLE_TOKEN'],
+           {"token"=>"1234",
             "expires_at"=>1536353459,
             "expires"=> DateTime.now
             }
