@@ -19,8 +19,7 @@ $ rails s (to start server)
 ```  
 
 ## Testing  
-* to successfully run all tests you will need to obtain 2 keys
-  - oauth token from google https://developers.google.com/identity/protocols/OAuth2 
+* to successfully run all tests you will need to obtain the petfinder api key
   - petfinder api key at https://www.petfinder.com/developers/api-key  
   
 ```
