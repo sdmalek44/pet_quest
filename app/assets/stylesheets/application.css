@@ -117,6 +117,11 @@ body {
 
 .lower-banner {
   height: 350px;
+  background-color: rgba(57, 79, 57, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
 }
 
 
@@ -155,14 +160,14 @@ div.slogan-text {
 
 .cat-dog-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 1400px;
   height: 300px;
 }
 
 .dog-click {
-  margin: 5px;
+  margin: 15px;
   width: 433px;
   height: 300px;
 
@@ -186,7 +191,7 @@ div.slogan-text {
 }
 
 .cat-click {
-  margin: 5px;
+  margin: 15px;
   width: 433px;
   height: 300px;
   border: 1px solid white;
@@ -213,7 +218,7 @@ div.slogan-text {
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
 }
 
 .ul-27 {

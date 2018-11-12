@@ -3,7 +3,7 @@ require 'rails_helper'
 describe PetfinderService, type: :model do
   before(:each) do
     @user = create(:user)
-    @param_info = {'name' => 'REESE', 'latitude' => '39.7497343', 'longitude' => '-105.00008249999999',
+    @param_info = {'name' => 'BILL NYE', 'latitude' => '39.7497343', 'longitude' => '-105.00008249999999',
     'size' => 'S', 'age' => 'Young', 'sex' => 'M'}
     @service = PetfinderService.new(@param_info)
 
@@ -43,7 +43,7 @@ describe PetfinderService, type: :model do
       animal = @service.animal_hard_way('dog')
 
       expect(animal).to be_a(Hash)
-      expect(animal[:name][:$t]).to eq('REESE')
+      expect(animal[:name][:$t]).to eq('BILL NYE')
     end
   end
   it 'can find shelter animals' do
