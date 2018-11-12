@@ -42,7 +42,8 @@ https://pet-quest.herokuapp.com/
 ## Setup  
   
 ```
-$ git clone 
+$ git clone https://github.com/sdmalek44/pet_quest.git
+$ cd pet_quest
 $ bundle install
 $ rake db:{drop,create,migrate}  
 $ rails s (to start server) 
