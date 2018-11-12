@@ -1,4 +1,5 @@
 class BasePresenter
+  attr_reader :user
 
   def initialize(user)
     @user = user
@@ -13,5 +14,4 @@ class BasePresenter
     "Welcome, #{user.first_name}" unless user.first_name.nil?
   end
 
-  attr_reader :user
 end
