@@ -28,18 +28,21 @@ https://pet-quest.herokuapp.com/
 ## Cat Search Page
 <img width="1597" alt="screen shot 2018-11-12 at 3 51 08 pm" src="https://user-images.githubusercontent.com/30483194/48380461-0e588d00-e695-11e8-998b-ebd1092029fe.png">
   
-## Cat Show Page  
+## Animal Show Page  
 <img width="1590" alt="screen shot 2018-11-12 at 3 51 52 pm" src="https://user-images.githubusercontent.com/30483194/48380462-0ef12380-e695-11e8-8e8d-0d397b7b81be.png">  
  
-## Cat Training Resources  
+## Animal Training Resources  
 <img width="1193" alt="screen shot 2018-11-12 at 3 52 11 pm" src="https://user-images.githubusercontent.com/30483194/48380614-a6ef0d00-e695-11e8-8949-90c396e614f6.png">
-
+  
+## Favorites Page  
+<img width="1643" alt="screen shot 2018-11-12 at 4 24 14 pm" src="https://user-images.githubusercontent.com/30483194/48381051-74deaa80-e697-11e8-9b7f-37ef7fd9d279.png">
 
   
 
 ## Setup  
   
 ```
+$ git clone 
 $ bundle install
 $ rake db:{drop,create,migrate}  
 $ rails s (to start server) 
