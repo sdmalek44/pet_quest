@@ -1,10 +1,20 @@
   
 # Pet Quest  
   
-PetQuest is a pet adoption app that allows you to search pets in your area by breed, size, age and gender. On each search page you can click to view a specific animal, their information, a map of the location of the animals shelter, and a list of helpful books about training that particular breed of animal. I utilized the petfinder, google books, and mapbox APIs. Google Oauth was used for authentication. Redis and sidekiq were used for a job that sends an email to subscribers once a week containing new pets near their location.  
+PetQuest is a pet adoption app that allows you to search pets in your area by breed, size, age and gender. On each search page you can click to view a specific animal, their information, a map of the location of that animals shelter, and a list of helpful books about training that particular breed of animal. A user who logs in through Google can also add animals to their favorites watch list. A user will also get a monthly email about new pets in their area.  
+  
+## Technologies  
+* Ruby 2.4.3  
+* Rails 5.1.6  
+* PostgreSQL
+* JavaScript  
+* RSpec  
+* Redis  
 
-Ruby Version: 2.4.3  
-Rails Version: 5.1.6  
+## APIs Used  
+* Petfinder  
+* Mapbox  
+* Google Books  
   
 ## Heroku  
 https://pet-quest.herokuapp.com/  
